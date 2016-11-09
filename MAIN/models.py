@@ -9,37 +9,45 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from settings import MEDIA_ROOT
 from mezzanine.pages.models import Page
 from mezzanine.core.models import RichText
+from mezzanine.core.fields import RichTextField, FileField
+from mezzanine.utils.models import upload_to
 from mezzanine.utils.sites import current_site_id, current_request
 
-class Product(Page,RichText):
+
+class Category(Page):
+    illustration = FileField(verbose_name=_("illustration"), upload_to=upload_to("MAIN.Category.illustration", "category"),format="Image", max_length=255, null=True, blank=True)
+
+class Product(Page):
     """
         title = company name
         richText = description
     """
     category = models.ManyToManyField('Category',blank=False)
-    town = models.CharField(max_length=255)
+    baseline = models.CharField(max_length=255,blank=True)
     productName = models.CharField(max_length=255)
-    price = models.CharField(max_length=10)
-    discount = models.CharField(max_length=255)
+    presentation_product = RichTextField(_("Content"),blank=True)
+    town = models.CharField(max_length=255,blank=True)
+    price = models.CharField(max_length=10,blank=True)
+    discount = models.CharField(max_length=255,blank=True)
     logo = FileField(verbose_name=_("logo"),
-        upload_to=upload_to("MAIN.Product.logo", "logo"),
+        upload_to=upload_to("MAIN.Product.illustration", "logo"),
         format="Image", max_length=255, null=True, blank=True)
     illustration = FileField(verbose_name=_("illustration"),
         upload_to=upload_to("MAIN.Product.illustration", "illustration"),
-        format="Image", max_length=255, null=True, blank=True)
-    illustration1 = FileField(upload_to=upload_to("MAIN.Product.illustration", "illustration"),
         format="Image", max_length=255, null=True, blank=True)
     illustration2 = FileField(upload_to=upload_to("MAIN.Product.illustration", "illustration"),
         format="Image", max_length=255, null=True, blank=True)
     illustration3 = FileField(upload_to=upload_to("MAIN.Product.illustration", "illustration"),
         format="Image", max_length=255, null=True, blank=True)
-    team = FileField(upload_to=upload_to("MAIN.Product.illustration", "team"),
+    illustration4 = FileField(upload_to=upload_to("MAIN.Product.illustration", "illustration"),
         format="Image", max_length=255, null=True, blank=True)
-    link = models.URLField()
-    website = models.URLField()
-    facebook = models.URLField()
-    twitter = models.URLField()
-    instagram = models.URLField()
+    presentation_sup = RichTextField(_("Presentation Start-up"),blank=True)
+    team_pic = FileField(upload_to=upload_to("MAIN.Product.illustration", "team"),format="Image", max_length=255, null=True, blank=True)
+    mainLink = models.URLField(null=True,blank=False)
+    website = models.URLField(null=True,blank=True)
+    facebook = models.URLField(null=True,blank=True)
+    twitter = models.URLField(null=True,blank=True)
+    instagram = models.URLField(null=True,blank=True)
 
     class Meta:
         verbose_name='PRODUIT'
@@ -53,11 +61,6 @@ class Product(Page,RichText):
             pass
         super(Product, self).save(*args, **kwargs)
 
-
-class Category(Page):
-    illustration = FileField(verbose_name=_("illustration"),
-        upload_to=upload_to("MAIN.Category.illustration", "category"),
-        format="Image", max_length=255, null=True, blank=True)
 
 
 

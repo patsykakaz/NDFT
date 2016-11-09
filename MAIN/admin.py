@@ -1,82 +1,49 @@
-# #-*- coding: utf-8 -*-
+#-*- coding: utf-8 -*-
 
-# from copy import deepcopy
-# from django.contrib import admin
-# from mezzanine.pages.admin import PageAdmin
-# from .models import *
+from copy import deepcopy
+from django.contrib import admin
+from mezzanine.pages.admin import PageAdmin
+from .models import *
 
-# from mezzanine.blog.admin import BlogPostAdmin
-# from mezzanine.blog.models import BlogPost
-
-
-# class ProductAdmin(PageAdmin):
-#     allFields = deepcopy(PageAdmin.fieldsets)
-#     allFields[0][1]["fields"].insert(-1, "content")
-#     fieldsets = allFields
+from mezzanine.blog.admin import BlogPostAdmin
+from mezzanine.blog.models import BlogPost
 
 
-# brand_fieldsets = deepcopy(PageAdmin.fieldsets)
-# brand_fieldsets[0][1]["fields"].insert(-1, "content")
-# brand_fieldsets[0][1]["fields"].insert(-1, "products")
-# brand_fieldsets[0][1]["fields"].insert(-1, "topics")
-# brand_fieldsets[0][1]["fields"].insert(-1, "illustration")
-# class BrandAdmin(PageAdmin):
-#     # add lien rubrique
-#     fieldsets = brand_fieldsets
-
-# class TopicAdmin(PageAdmin):
-#     allFields = deepcopy(PageAdmin.fieldsets)
-#     allFields[0][1]["fields"].insert(-1, "content")
-#     fieldsets = allFields
-
-# class SubsidiaryInline(admin.TabularInline):
-#     model = Subsidiary
-#     fk_name = 'top_company'
-#     extra = 5
-
-# class JobInline(admin.TabularInline):
-#     model = Job
-#     extra = 5
-
-# company_fieldsets = deepcopy(PageAdmin.fieldsets)
-# company_fieldsets[0][1]["fields"].insert(-1, "content")
-# company_fieldsets[0][1]["fields"].insert(-1, "brands")
-# company_fieldsets[0][1]["fields"].insert(-1, "topics")
-# company_fieldsets[0][1]["fields"].insert(-1, "illustration")
-# company_fieldsets[0][1]["fields"].insert(-1, "adress")
-# company_fieldsets[0][1]["fields"].insert(-1, "zipCode")
-# company_fieldsets[0][1]["fields"].insert(-1, "bp")
-# company_fieldsets[0][1]["fields"].insert(-1, "area")
-# company_fieldsets[0][1]["fields"].insert(-1, "city")
-# company_fieldsets[0][1]["fields"].insert(-1, "country")
-# company_fieldsets[0][1]["fields"].insert(-1, "tel")
-# company_fieldsets[0][1]["fields"].insert(-1, "fax")
-# company_fieldsets[0][1]["fields"].insert(-1, "email")
-# company_fieldsets[0][1]["fields"].insert(-1, "website")
-# company_fieldsets[0][1]["fields"].insert(-1, "highlight")
-# company_fieldsets[0][1]["fields"].insert(-1, "hidden_contact")
-
-# class CompanyAdmin(PageAdmin):
-#     inlines = (JobInline,SubsidiaryInline)
-#     fieldsets = company_fieldsets
+category_fieldsets = deepcopy(PageAdmin.fieldsets)
+category_fieldsets[0][1]["fields"].insert(-1, "illustration")
+class CategoryAdmin(PageAdmin):
+    fieldsets = category_fieldsets
 
 
-# person_fieldsets = deepcopy(PageAdmin.fieldsets)
-# person_fieldsets[0][1]["fields"].insert(-1, "firstName")
-# person_fieldsets[0][1]["fields"].insert(-1, "content")
-# person_fieldsets[0][1]["fields"].insert(-1, "illustration")
-# person_fieldsets[0][1]["fields"].insert(-1, "adress")
-# person_fieldsets[0][1]["fields"].insert(-1, "zipCode")
-# person_fieldsets[0][1]["fields"].insert(-1, "area")
-# person_fieldsets[0][1]["fields"].insert(-1, "city")
-# person_fieldsets[0][1]["fields"].insert(-1, "country")
-# person_fieldsets[0][1]["fields"].insert(-1, "email")
-# person_fieldsets[0][1]["fields"].insert(-1, "tel")
-# person_fieldsets[0][1]["fields"].insert(-1, "highlight")
-# class PersonAdmin(PageAdmin):
-#     inlines = (JobInline,)
-#     fieldsets = person_fieldsets
+product_fieldsets = deepcopy(PageAdmin.fieldsets)
+product_fieldsets[0][1]["fields"].insert(-1, "category")
+product_fieldsets[0][1]["fields"].insert(-1, "baseline")
+product_fieldsets[0][1]["fields"].insert(-1, "presentation_product")
+product_fieldsets[0][1]["fields"].insert(-1, "town")
+product_fieldsets[0][1]["fields"].insert(-1, "productName")
+product_fieldsets[0][1]["fields"].insert(-1, "price")
+product_fieldsets[0][1]["fields"].insert(-1, "discount")
+product_fieldsets[0][1]["fields"].insert(-1, "presentation_sup")
+product_fieldsets[0][1]["fields"].insert(-1, "logo")
+product_fieldsets[0][1]["fields"].insert(-1, "illustration")
+product_fieldsets[0][1]["fields"].insert(-1, "illustration2")
+product_fieldsets[0][1]["fields"].insert(-1, "illustration3")
+product_fieldsets[0][1]["fields"].insert(-1, "illustration4")
+product_fieldsets[0][1]["fields"].insert(-1, "team_pic")
+product_fieldsets[0][1]["fields"].insert(-1, "mainLink")
+product_fieldsets[0][1]["fields"].insert(-1, "website")
+product_fieldsets[0][1]["fields"].insert(-1, "facebook")
+product_fieldsets[0][1]["fields"].insert(-1, "twitter")
+product_fieldsets[0][1]["fields"].insert(-1, "instagram")
+class ProductAdmin(PageAdmin):
+    fieldsets = product_fieldsets
 
-# admin.site.register(Person, PersonAdmin)
-# admin.site.register(Company, CompanyAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Product, ProductAdmin)
+
+
+
+
+
+
 
