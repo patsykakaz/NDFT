@@ -65,16 +65,14 @@
         <div id='logo' class='text-center'>
             <img src='http://noeldelafrenchtech.fr/wp-content/uploads/2015/11/noel1.png'>
         </div>
-        <div class="navbar-collapse collapse">
-            <div id='all_navCat'>
-            {% for cat in all_categories %}
-                <div class='navCat'>{{ cat.title }}</div>
-            {% endfor %}
-            </div>
-            {# {% block navbar_search_form %}{% search_form "all" %}{% endblock %} #}
-            {# {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%} #}
-        </div>
     </div>
+    <div id='all_navCat'>
+    {% for cat in all_categories %}
+        <div class='navCat'><a href='{{ cat.get_absolute_url }}'>{{ cat.title }}</a></div>
+    {% endfor %}
+    </div>
+    {# {% block navbar_search_form %}{% search_form "all" %}{% endblock %} #}
+    {# {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%} #}
 </div>
 
 <div class="container">

@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
     $('#i18n').css('top',$('#logo').outerHeight()/2);
+
 });
 
 $(window).load(function(){
@@ -9,15 +10,14 @@ $(window).load(function(){
 });
 
 $(window).resize(function(){
-    // navCat();
+    navCat();
 });
 
 function navCat(){
-    i = 0;
-    Fsize = parseInt($('.navCat').css('font-size'));
-    while($('#all_navCat').height() > $('.navCat').outerHeight() & i< 30){
-        Fsize = Fsize-1;
+    if($('#all_navCat').outerHeight() > $('.navCat').outerHeight()){
+        Fsize = parseFloat($('.navCat').css('font-size'))-0.05;
         $('.navCat').css('font-size',Fsize);
-        i += 1;
+        $('.navCat').attr('rel',Fsize);
+        setTimeout(navCat(),10);
     }
 }

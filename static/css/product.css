@@ -36,9 +36,15 @@ h3{
     margin: 0;
 }
 #illustration .first{
-    top: 0;
+    opacity: 1;
 }#illustration .second{
-    top: 100%;
+    opacity: 0;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}#illustration .second.lift{
+    opacity: 1;
 }
 .small_img{
     /*max-width: calc(33% - 20px);*/

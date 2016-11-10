@@ -25,7 +25,7 @@ class Product(Page):
         title = company name
         richText = description
     """
-    cat_product = models.ForeignKey('Category',blank=False, verbose_name='category for product')
+    cat_product = models.ForeignKey('Category',null=True,blank=True, verbose_name='category for product')
     baseline = models.CharField(max_length=255,blank=True)
     productName = models.CharField(max_length=255)
     presentation_product = RichTextField(_("Content"),blank=True)

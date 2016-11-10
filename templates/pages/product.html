@@ -33,13 +33,13 @@
             {% endif %}
         </div>
         {% if product.illustration2 %}
-            <img class='small_img' src="{{ MEDIA_URL}}{% thumbnail product.illustration2 120 90 center %}" alt="illustration {{ product.productName }}">
+            <img class='small_img' src="{{ MEDIA_URL}}{% thumbnail product.illustration2 120 90 center %}" alt="illustration {{ product.productName }}" rel='0'>
         {% endif %}
         {% if product.illustration3 %}
-            <img class='small_img' src="{{ MEDIA_URL}}{% thumbnail product.illustration3 120 90 center %}" alt="illustration {{ product.productName }}">
+            <img class='small_img' src="{{ MEDIA_URL}}{% thumbnail product.illustration3 120 90 center %}" alt="illustration {{ product.productName }}" rel='1'>
         {% endif %}
         {% if product.illustration4 %}
-            <img class='small_img' src="{{ MEDIA_URL}}{% thumbnail product.illustration4 120 90 center %}" alt="illustration {{ product.productName }}">
+            <img class='small_img' src="{{ MEDIA_URL}}{% thumbnail product.illustration4 120 90 center %}" alt="illustration {{ product.productName }}" rel='2'>
         {% endif %}
     </div>
     <div class='col-md-8 col-sm-6 col-xs-12' style='position:relative;'>
