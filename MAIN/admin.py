@@ -10,7 +10,10 @@ from mezzanine.blog.models import BlogPost
 
 
 category_fieldsets = deepcopy(PageAdmin.fieldsets)
+category_fieldsets[0][1]["fields"].insert(-1, "order")
 category_fieldsets[0][1]["fields"].insert(-1, "illustration")
+category_fieldsets[0][1]["fields"].insert(-1, "logo_parrain")
+category_fieldsets[0][1]["fields"].insert(-1, "presentation_parrain")
 class CategoryAdmin(PageAdmin):
     fieldsets = category_fieldsets
 

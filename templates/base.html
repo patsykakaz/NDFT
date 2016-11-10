@@ -31,6 +31,7 @@
 <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
 <script src="{% static "js/bootstrap.js" %}"></script>
 <script src="{% static "js/bootstrap-extras.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
 {% block extra_js %}{% endblock %}
 {% endcompress %}
 
@@ -44,7 +45,7 @@
 
 <body id="{% block body_id %}body{% endblock %}">
 
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default" role="navigation">
     <div style='background-color:rgb(41,151,186);'>[INFO]</div>
     <div class="container">
         <div class="navbar-header">
@@ -58,18 +59,20 @@
             {# {% if settings.SITE_TITLE %}<a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>{% endif %} #}
             {# {% endblock%} #}
         </div>
+        <div id='i18n' class='col-md-12'>
+            {% include 'includes/language_selector.html' %}
+        </div>
         <div id='logo' class='text-center'>
             <img src='http://noeldelafrenchtech.fr/wp-content/uploads/2015/11/noel1.png'>
         </div>
         <div class="navbar-collapse collapse">
+            <div id='all_navCat'>
             {% for cat in all_categories %}
-                <div class='category'>{{ cat.title }}</div>
+                <div class='navCat'>{{ cat.title }}</div>
             {% endfor %}
+            </div>
             {# {% block navbar_search_form %}{% search_form "all" %}{% endblock %} #}
             {# {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%} #}
-        </div>
-        <div id='i18n' class='col-md-12'>
-            {% include 'includes/language_selector.html' %}
         </div>
     </div>
 </div>

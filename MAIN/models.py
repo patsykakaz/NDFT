@@ -15,7 +15,10 @@ from mezzanine.utils.sites import current_site_id, current_request
 
 
 class Category(Page):
-    illustration = FileField(verbose_name=_("illustration"), upload_to=upload_to("MAIN.Category.illustration", "category"),format="Image", max_length=255, null=True, blank=True)
+    order = models.IntegerField(default=0, verbose_name='ordre de priorité')
+    illustration = FileField(verbose_name=_("Illustration"), upload_to=upload_to("MAIN.Category.illustration", "category"),format="Image", max_length=255, null=True, blank=True)
+    logo_parrain = FileField(verbose_name=_("Logo Parrain"), upload_to=upload_to("MAIN.Category.logo_parrain", "logo_parrain"),format="Image", max_length=255, null=True, blank=True)
+    presentation_parrain =RichTextField(_("Présentation parrain"),blank=True)
 
 class Product(Page):
     """
