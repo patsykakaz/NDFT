@@ -11,6 +11,18 @@ x = x[1:]
 from MAIN.models import *
 for element in x:
     if element[0]:
+        if element[12]:
+            element[12] = element[12].replace('é','e').replace('à','a').replace(' ', '_').replace('â','a').replace("’","_")
+        if element[13]:
+            element[13] = element[13].replace('é','e').replace('à','a').replace(' ', '_').replace('â','a').replace("’","_")
+        if element[14]:
+            element[14] = element[14].replace('é','e').replace('à','a').replace(' ', '_').replace('â','a').replace("’","_")
+        if element[15]:
+            element[15] = element[15].replace('é','e').replace('à','a').replace(' ', '_').replace('â','a').replace("’","_")
+        if element[16]:
+            element[16] = element[16].replace('é','e').replace('à','a').replace(' ', '_').replace('â','a').replace("’","_")
+        if element[17]:
+            element[17] = element[17].replace('é','e').replace('à','a').replace(' ', '_').replace('â','a').replace("’","_")
         k = Product(
                 title_fr=element[0],
                 title_en=element[0],
@@ -63,3 +75,48 @@ for element in x:
 # 20 Quelle est votre page Facebook ?
 # 21 Quelle est votre page Twitter ?
 # 22 Quelle est votre page Instagram ?
+
+# for k in kk : 
+#     if k.logo != "":
+#         split = k.logo.name.split('/static/media/')
+#         try: 
+#             split.remove('')
+#         except: 
+#             pass
+#         k.logo.name = "/home/patsykakaz/NDFT/MAIN/static/media/uploads/illustration/"+split[-1]
+#     if k.illustration != "":
+#         split = k.illustration.name.split('/static/media/')
+#         try: 
+#             split.remove('')
+#         except: 
+#             pass
+#         k.illustration.name = "/home/patsykakaz/NDFT/MAIN/static/media/uploads/illustration/"+split[-1]
+#     if k.illustration2 != "":
+#         split = k.illustration2.name.split('/static/media/')
+#         try: 
+#             split.remove('')
+#         except: 
+#             pass
+#         k.illustration2.name = "/home/patsykakaz/NDFT/MAIN/static/media/uploads/illustration/"+split[-1]
+#     if k.illustration3 != "":
+#         split = k.illustration3.name.split('/static/media/')
+#         try: 
+#             split.remove('')
+#         except: 
+#             pass
+#         k.illustration3.name = "/home/patsykakaz/NDFT/MAIN/static/media/uploads/illustration/"+split[-1]
+#     if k.illustration4 != "":
+#         split = k.illustration4.name.split('/static/media/')
+#         try: 
+#             split.remove('')
+#         except: 
+#             pass
+#         k.illustration4.name = "/home/patsykakaz/NDFT/MAIN/static/media/uploads/illustration/"+ split[-1]
+#     if k.team_pic != "":
+#         split = k.team_pic.name.split('/static/media/')
+#         try: 
+#             split.remove('')
+#         except: 
+#             pass
+#         k.team_pic.name = "/home/patsykakaz/NDFT/MAIN/static/media/uploads/illustration/"+ split[-1]
+#     k.save()
