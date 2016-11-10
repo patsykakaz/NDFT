@@ -5,10 +5,9 @@
 .coverage
 local_settings.py
 settings.py
-/migrations
-/static
+**/migrations
+/static/*
 !/static/css
 !/static/js
 !/static/img
-!/static/media
 !/static/fonts

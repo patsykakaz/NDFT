@@ -58,10 +58,12 @@
         <div class='col-md-12'>
         {% endif %}
             <h1>{{ product.title }} - {{ product.town }}</h1>
-            <div>
-                {% if product.presentation_sup %}{{ product.presentation_sup }} {% endif %}
-                {% if product.website %}<a href='{{ product.website }}' target='blank'>{{ product.website }}</a>{% endif %}
-            </div>
+                {% if product.presentation_sup %}
+                    <div>
+                        {{ product.presentation_sup|richtext_filters|safe }}
+                    </div>
+                {% endif %}
+                {% if product.website %}<a href='{{ product.website }}' target='blank'>site web</a>{% endif %}
         </div>
         {% if product.logo or product.team_pic %}
         <div class='col-md-4 col-sm-6 col-xs-12'>
@@ -69,8 +71,19 @@
                 <img class='thumbnail' src="{{ MEDIA_URL}}{% thumbnail product.logo 120 90 center %}" alt="logo {{ product.title }}">
             {% endif %}
             {% if product.team_pic %}
-                <img class='thumbnail' src="{{ MEDIA_URL}}{% thumbnail product.team_pic 400 300 center %}" alt="logo {{ product.title }}">
+                <img class='thumbnail' src="{{ MEDIA_URL}}{% thumbnail product.team_pic 400 300 center %}" alt="team {{ product.title }}">
             {% endif %}
+            <div id='social'>
+                {% if product.facebook %}
+                    <a href='{{ product.facebook }}' target='blank'><i class='fa fa-facebook'></i></a>
+                {% endif %}
+                {% if product.twitter %}
+                    <a href='{{ product.twitter }}' target='blank'><i class='fa fa-twitter'></i></a>
+                {% endif %}
+                {% if product.instagram %}
+                    <a href='{{ product.instagram }}' target='blank'><i class='fa fa-instagram'></i></a>
+                {% endif %}
+            </div>
         </div>
         {% endif %}
     </div>
