@@ -15,3 +15,10 @@
     max-width: 150px;
 }
 
+#logo{
+    margin: 30px 0;
+}
+
+.navbar .category{
+    display: inline-block;
+}
