@@ -9,6 +9,11 @@ from .models import *
 @processor_for(Product)
 def processor_projet(request, page):
     product = Product.objects.get(pk=page.pk)
+    try: 
+        related_products = Product.objects.filter(category=product.category).exclude(pk=product.pk)
+        print type(related_products)
+    except:
+        pass
     # print product.category
     # try: 
     #     next_projet = Projet.objects.filter(pk__gt=(projet.pk+1))

@@ -22,7 +22,7 @@ class Product(Page):
         title = company name
         richText = description
     """
-    category = models.ManyToManyField('Category',blank=False)
+    cat_product = models.ForeignKey('Category',blank=False, verbose_name='category for product')
     baseline = models.CharField(max_length=255,blank=True)
     productName = models.CharField(max_length=255)
     presentation_product = RichTextField(_("Content"),blank=True)

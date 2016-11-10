@@ -16,7 +16,7 @@ class CategoryAdmin(PageAdmin):
 
 
 product_fieldsets = deepcopy(PageAdmin.fieldsets)
-product_fieldsets[0][1]["fields"].insert(-1, "category")
+product_fieldsets[0][1]["fields"].insert(-1, "cat_product")
 product_fieldsets[0][1]["fields"].insert(-1, "baseline")
 product_fieldsets[0][1]["fields"].insert(-1, "presentation_product")
 product_fieldsets[0][1]["fields"].insert(-1, "town")
