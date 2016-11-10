@@ -1,0 +1,17 @@
+
+
+#i18n{
+    /*position: relative;*/
+    /*z-index: 98;*/
+    /*height: 15px;*/
+    overflow: visible;
+}
+#i18n .form-group{
+    position: absolute;
+    z-index: 99;
+    top: -33px;
+    right: 10px;
+    display: inline-block;
+    max-width: 150px;
+}
+

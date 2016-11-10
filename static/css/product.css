@@ -1,0 +1,79 @@
+a{
+    color: rgb(230,73,72);
+}a:hover{
+    color: rgb(227,55,57);
+}
+h1{
+    margin-top: 0;
+    font-size: 25px;
+    color: rgb(41,151,186);
+}
+h2{
+    margin-top: 0;
+    font-size: 22px;
+    color: rgb(41,151,186);
+}
+h3{
+    margin-top: 0;
+    font-size: 16px;
+    color: rgb(41,151,186);
+}
+.space{
+    padding: 40px 0;
+}
+
+#illustration{
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+#illustration img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+}
+#illustration .first{
+    top: 0;
+}#illustration .second{
+    top: 100%;
+}
+.small_img{
+    /*max-width: calc(33% - 20px);*/
+    margin-right: 14px;
+}.small_img:last-child{
+    margin-right: 0;
+}
+#buy{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#buy a, #buy a:hover{
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: rgb(230,73,72);
+    color: white;
+}
+#startup h2, #startup h3{
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+#startup .title{
+    margin-bottom: 0;
+}
+#startup .thumbnail{
+    display: inline-block;
+    margin-right: 20px;
+}
+#social.no_team_pic{
+    margin-top: 20px;
+}
+#social.no_team_pic a{
+    display: block;
+}
+footer{
+    margin-top: 100px;
+}

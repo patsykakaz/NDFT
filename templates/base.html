@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
 <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
 <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+<link rel="stylesheet" href="{% static "css/main.css" %}">
 {% if LANGUAGE_BIDI %}
 <link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
 {% endif %}
@@ -60,6 +61,9 @@
         <div class="navbar-collapse collapse">
             {# {% block navbar_search_form %}{% search_form "all" %}{% endblock %} #}
             {# {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%} #}
+        </div>
+        <div id='i18n' class='col-md-12'>
+            {% include 'includes/language_selector.html' %}
         </div>
     </div>
 </div>
