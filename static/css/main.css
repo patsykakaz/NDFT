@@ -1,6 +1,17 @@
 
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
 a, a:hover, a:visited{
     text-decoration: none;
+}
+
+#main{
+    overflow: hidden;
+}
+#main img{
+    max-width: 100%;
 }
 
 #i18n{
@@ -19,7 +30,7 @@ a, a:hover, a:visited{
 }
 
 #logo{
-    margin: 30px 0;
+    margin: 50px 0;
 }
 #all_navCat{
     max-width: 1170px;
@@ -35,22 +46,39 @@ a, a:hover, a:visited{
 .navCat{
     display: inline-block;
     padding: 3px 6px;
-    font-size: 24px;
+    font-size: 18px;
     text-align: center;
+    -moz-transition: color 0.1s ease-in-out;
+    -webkit-transition: color 0.1s ease-in-out;
+    -o-transition: color 0.1s ease-in-out;
+    transition: color 0.1s ease-in-out;
 }.navCat a{
     color: rgb(41,151,186);
 }
 
 
 
+footer{
+    margin-top: 100px;
+}
+
+
 @media screen and (min-width: 1200px){
+    #logo{
+        margin: 70px 0;
+    }
     .navCat{
         padding: 5px 10px;
     }
 }
 
 @media screen and (max-width: 991px){
-    .navCat{
-        padding: 3px 3px;
+    #logo{
+        margin: 30px 0;
+    }
+}
+@media screen and (max-width: 568px){
+    #logo{
+        margin: 20px 0;
     }
 }

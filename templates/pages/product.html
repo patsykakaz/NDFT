@@ -2,7 +2,7 @@
 {% load pages_tags mezzanine_tags i18n staticfiles %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static "css/product.css" %}">
+    <link rel="stylesheet" href="{% static "css/product.css" %}">
 {% endblock %}
 
 
@@ -14,7 +14,7 @@
 
 {% if product.category|length %}
     <div id='category'>
-            {{ product.category }}
+        {{ product.category }}
     </div>
 {% endif %}
 
@@ -47,17 +47,25 @@
             <a href='{{ product.mainLink }}' target='blank'>L'offrir</a>
         </div>
         <h1>
-            {{ product.price }}
+            {{ product.productName }}
+            <span class='text-muted' style='font-weight:lighter;'>
+                {{ product.title }}
+            </span>
         </h1>
-        <h1>{{ product.productName }}</h1>
-        <h3 class='text-muted'>{{ product.title }}</h3>
+        <h3 class='text-muted'>
+            {{ product.price }} 
+        </h3>
         <div class='text-muted'>
             {{ product.baseline }}
             {{ product.presentation_product|richtext_filters|safe }}
         </div>
     </div>
 </div>
-{# <div class='customSeparator'></div> #}
+
+<div class='container'>
+    <div class='customSeparator'></div>
+</div>
+
 <div id='startup' class='container space'>
     {% if product.team_pic %}
     <div class='col-md-8 col-sm-6 col-xs-12'>
@@ -67,8 +75,13 @@
         {% if product.logo %}
             <img class='thumbnail' src="{{ MEDIA_URL}}{% thumbnail product.logo 120 90 center %}" alt="logo {{ product.title }}">
         {% endif %}
-        <h2>{{ product.title }} </h2>
-        {% if product.town %}<h3> {{ product.town }}</h3> <br />{% endif %}
+        <h2>
+            {{ product.title }}
+            {% if product.town %}
+                <span class='text-muted' style='font-weight:lighter;'>, {{ product.town }}
+                </span>
+            {% endif %}
+        </h2>
         {% if product.presentation_sup %}
             <div>
                 {{ product.presentation_sup|richtext_filters|safe }}
@@ -108,10 +121,21 @@
     {% endif %}
 </div>
 
+<div class='container'>
+    <div class='customSeparator'></div>
+</div>
+
 <div id='related' class='container'>
+    {% if LANGUAGE_CODE == 'fr' %}
+        <h2 class='text-center'>Vous aimerez aussi </h2>
+    {% else %}
+        <h2 class='text-center'>You might be interested in </h2>
+    {% endif %}
     {% for k in related_products %}
-        <div class='col-md-4 col-ms-4 col-xs-12'>
-            <img class='thumbnail' src="{{ MEDIA_URL}}{% thumbnail k.illustration 400 300 center %}" alt="{{ k.title }}">
+        <div class='related col-md-4 col-ms-4 col-xs-12'>
+            <a href='{{ k.get_absolute_url }}'>
+                <img class='thumbnail' src="{{ MEDIA_URL}}{% thumbnail k.illustration 400 300 center %}" alt="{{ k.title }}">
+            </a>
         </div>
     {% endfor %}
 </div>

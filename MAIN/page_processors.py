@@ -12,8 +12,7 @@ from .models import *
 def processor_projet(request, page):
     product = Product.objects.get(pk=page.pk)
     try: 
-        related_products = Product.objects.filter(category=product.category).exclude(pk=product.pk)
-        print type(related_products)
+        related_products = Product.objects.filter(cat_product=product.cat_product).exclude(pk=product.pk).order_by('?')[:3]
     except:
         pass
     # print product.category
