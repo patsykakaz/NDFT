@@ -1,5 +1,9 @@
 
 
+.text-muted{
+    font-family: 'Open Sans', sans-serif;
+}
+
 .navbar.navbar-default{
     opacity: 0;
     -moz-transition: all 0.2s ease-in-out;

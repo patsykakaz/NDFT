@@ -7,15 +7,13 @@ $(window).load(function(){
 });
 
 $(window).resize(function(){
-
+    illustration();
 });
 
 function illustration(){
     $('#illustration').height($('#illustration').width()*0.75);
     $('.small_img').width((
-            $('#illustration').width()
-                -(20 * ($('.small_img').length-1))
-            )/($('.small_img').length)
+            $('#illustration').width()-40)/3
         );
     $('.small_img').mouseover(function(){
         target = $('#illustration .second:eq('+$(this).attr('rel')+')');

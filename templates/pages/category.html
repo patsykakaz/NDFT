@@ -1,3 +1,43 @@
 {% extends "base.html" %}
+{% load pages_tags mezzanine_tags i18n staticfiles %}
 
-<script type="text/javascript">alert('category');</script>
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/category.css" %}">
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="{% static "js/category.js" %}"></script>
+{% endblock %}
+
+{% block main %}
+    <div id='banner'>
+        <img src="{{ MEDIA_URL}}{% thumbnail category.illustration 0 500 center %}" alt="illustration {{ category.title }}">
+    </div>
+
+    <div id='products' class='container'>
+        {% for product in products %}
+            <div class='productBox thumbnail col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+                <a href='{{ product.get_absolute_url }}'>
+                <div class='productLiner'></div>
+                <img src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
+                <h2>{{ product.productName }}</h2>
+                <h3>{{ product.title }} {% if product.price %}<span class='text-muted'>{{ product.price }}</span>{% endif %}</h3>
+                {% if product.baseline %}
+                <div class='baseline'>{{ product.baseline }}</div>
+                {% endif %}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if category.presentation_parrain %}
+        <div id='parrain'>
+            <img src="{{ MEDIA_URL}}{% thumbnail category.logo_parrain 400 300 center %}" alt="illustration {{ produit.productName }}">
+            <div style='display:inline-block;'>{{ category.presentation_parrain }}</div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+

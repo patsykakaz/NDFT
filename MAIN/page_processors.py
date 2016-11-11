@@ -8,6 +8,15 @@ from .models import *
 
 # from mezzanine.core.request import current_request
 
+@processor_for(Category)
+def processor_projet(request, page):
+    category = Category.objects.get(pk=page.pk)
+    try: 
+        products = Product.objects.filter(cat_product=category).order_by('?')[:32]
+    except:
+        pass
+    return locals()
+
 @processor_for(Product)
 def processor_projet(request, page):
     product = Product.objects.get(pk=page.pk)
@@ -15,13 +24,6 @@ def processor_projet(request, page):
         related_products = Product.objects.filter(cat_product=product.cat_product).exclude(pk=product.pk).order_by('?')[:3]
     except:
         pass
-    # print product.category
-    # try: 
-    #     next_projet = Projet.objects.filter(pk__gt=(projet.pk+1))
-    #     next_projet = next_projet[0]
-    # except:
-    #     previous_projet = Projet.objects.order_by('-pk')
-    #     previous_projet = previous_projet[0]
     return locals()
 
 
