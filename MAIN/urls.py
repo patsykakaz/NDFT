@@ -40,8 +40,9 @@ urlpatterns += [
 
     url("^$", direct_to_template, {"template": "index.html"}, name="home"),
     url(r'^verification/$', verification, name='verification'),
-    url(r'^liste/(?P<Plist>([0-9]-?)*)/$', checkList, name='checkList'),
-    url(r'^liste/$', checkList, name='checkList'),
+    url(r'^add2list/(?P<pk>(\d+))/$', add2list, name='add2list'),
+    url(r'^checklist/(?P<Plist>([0-9]-?)*)/$', checklist, name='checklist'),
+    url(r'^wishlist/$', sharelist, name='sharelist'),
 
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
     # ---------------------------------------------

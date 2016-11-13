@@ -38,7 +38,7 @@ class Product(Page):
     productName = models.CharField(max_length=255)
     presentation_product = RichTextField(_("Content"),blank=True)
     town = models.CharField(max_length=255,blank=True)
-    price = models.CharField(max_length=10,blank=True)
+    price = models.CharField(max_length=255,blank=True)
     discount = models.CharField(max_length=255,blank=True)
     illustration = FileField(verbose_name=_("illustration principale du produit"),
         upload_to=upload_to("MAIN.Product.illustration", "illustration"),

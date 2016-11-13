@@ -35,6 +35,23 @@
 <script src="{% static "js/bootstrap-extras.js" %}"></script>
 <script src="{% static "js/main.js" %}"></script>
 {% block extra_js %}{% endblock %}
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '430987550358462',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 {% endcompress %}
 
 <!--[if lt IE 9]>
@@ -65,7 +82,7 @@
             {% include 'includes/language_selector.html' %}
         </div>
         <div id='logo' class='text-center'>
-            <img src='http://noeldelafrenchtech.fr/wp-content/uploads/2015/11/noel1.png'>
+            <img src='{% static "img/noel1.png" %}'>
         </div>
     </div>
     <div id='all_navCat'>
