@@ -13,8 +13,8 @@ $(window).load(function(){
 });
 
 $(window).resize(function(){
-    $('.navCat').css('font-size',18);
     if($(window).width()>991){
+        $('.navCat').css('font-size',18);
         navCat();
     }
 });

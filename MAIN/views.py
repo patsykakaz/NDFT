@@ -20,4 +20,23 @@ def verification(request):
     all_sup = Product.objects.all()
     return render(request,'verification.html',locals())
 
+def checkList(request,Plist=False):
+    products = []
+    if Plist:
+        if 'plist' not in request.session:
+            request.session['plist']=[]
+        plist = request.session['plist']
+        for item in Plist.split('-'):
+            products.append(Product.objects.get(pk=item))
+            if not item in plist:
+                plist = plist + [item]
+        if not products:
+            products = False
+        request.session['plist'] = plist
+
+    return render(request,'pages/checklist.html',locals())
+
+
+
+
 

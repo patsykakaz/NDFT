@@ -13,7 +13,7 @@ from models import *
 
 class MenuMiddleware(object):
     def process_template_response(self, request, response):
-        all_categories = Category.objects.all()
+        all_categories = Category.objects.all().order_by('-order')
         # forbidden_domain = "lalettre"
         # if not request.user.is_authenticated() and not "admin/" in request.path and not "/user/" in request.path :
         #     return HttpResponseRedirect('/user/login/?next='+request.path)

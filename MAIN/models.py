@@ -20,6 +20,14 @@ class Category(Page):
     logo_parrain = FileField(verbose_name=_("Logo Parrain"), upload_to=upload_to("MAIN.Category.logo_parrain", "logo_parrain"),format="Image", max_length=255, null=True, blank=True)
     presentation_parrain =RichTextField(_("Présentation parrain"),blank=True)
 
+    def save(self, *args, **kwargs):
+        self.in_menus = []
+        try:
+            self.parent = Page.objects.get(title='CATEGORIES')
+        except: 
+            pass
+        super(Category, self).save(*args, **kwargs)
+
 class Product(Page):
     """
         title = company name
@@ -32,20 +40,20 @@ class Product(Page):
     town = models.CharField(max_length=255,blank=True)
     price = models.CharField(max_length=10,blank=True)
     discount = models.CharField(max_length=255,blank=True)
-    logo = FileField(verbose_name=_("logo"),
-        upload_to=upload_to("MAIN.Product.illustration", "logo"),
-        format="Image", max_length=255, null=True, blank=True)
-    illustration = FileField(verbose_name=_("illustration"),
+    illustration = FileField(verbose_name=_("illustration principale du produit"),
         upload_to=upload_to("MAIN.Product.illustration", "illustration"),
         format="Image", max_length=255, null=True, blank=True)
-    illustration2 = FileField(upload_to=upload_to("MAIN.Product.illustration", "illustration"),
+    illustration2 = FileField(upload_to=upload_to("MAIN.Product.illustration", "illustration 2"),
         format="Image", max_length=255, null=True, blank=True)
-    illustration3 = FileField(upload_to=upload_to("MAIN.Product.illustration", "illustration"),
+    illustration3 = FileField(upload_to=upload_to("MAIN.Product.illustration", "illustration 3"),
         format="Image", max_length=255, null=True, blank=True)
-    illustration4 = FileField(upload_to=upload_to("MAIN.Product.illustration", "illustration"),
+    illustration4 = FileField(upload_to=upload_to("MAIN.Product.illustration", "illustration 4"),
         format="Image", max_length=255, null=True, blank=True)
     presentation_sup = RichTextField(_("Presentation Start-up"),blank=True)
-    team_pic = FileField(upload_to=upload_to("MAIN.Product.illustration", "team"),format="Image", max_length=255, null=True, blank=True)
+    logo = FileField(verbose_name=_("logo"),
+        upload_to=upload_to("MAIN.Product.illustration", "logo Start-Up"),
+        format="Image", max_length=255, null=True, blank=True)
+    team_pic = FileField(upload_to=upload_to("MAIN.Product.illustration", "photo Team "),format="Image", max_length=255, null=True, blank=True)
     mainLink = models.URLField(null=True,blank=False)
     website = models.URLField(null=True,blank=True)
     facebook = models.URLField(null=True,blank=True)

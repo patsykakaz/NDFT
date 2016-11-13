@@ -22,9 +22,7 @@
     <div id='mobile_info' class='col-sm-12 col-xs-12' style='position:relative;'>
         <h1>
             {{ product.productName }}
-            <span class='text-muted' style='font-weight:lighter;'>
-                {{ product.title }}
-            </span>
+            <a id='sup_cat' href='#startup'>{{ product.title }}</a>
         </h1>
         <h3 class='text-blue'>
             {{ product.price }} 
@@ -32,8 +30,8 @@
                 <i>({{ product.discount }})</i>
             {% endif %}
         </h3>
-        <div class='text-muted'>
-            {{ product.baseline }}
+        <div class='text-muted text-justify'>
+            <p style='margin-bottom:15px'> <i>{{ product.baseline }}</i> </p>
             {{ product.presentation_product|richtext_filters|safe }}
         </div>
         <a class='buy' href='{{ product.mainLink }}' target='blank'>
@@ -70,18 +68,25 @@
     <div id='desktop_info' class='col-md-8 col-sm-6 col-xs-12' style='position:relative;'>
         <h1>
             {{ product.productName }}
-            <span class='text-muted' style='font-weight:lighter;'>
-                {{ product.title }}
-            </span>
         </h1>
+        <h2 style='font-weight:lighter;'>
+        {% if LANGUAGE_CODE == 'fr' %}
+        par la start-up:
+        {% else %}
+        start-up :
+        {% endif %}
+            <a id='sup_cat' href='#startup'>
+                {{ product.title }}
+            </a>
+        </h2>
         <h3 class='text-blue'>
             {{ product.price }} 
             {% if product.discount %}
                 <i>({{ product.discount }})</i>
             {% endif %}
         </h3>
-        <div class='text-muted'>
-            {{ product.baseline }}
+        <div class='text-muted text-justify'>
+            <p style='margin-bottom:20px; font-size:16px;'> <i>{{ product.baseline }} </i></p>
             {{ product.presentation_product|richtext_filters|safe }}
         </div>
         <a class='buy pull-right' href='{{ product.mainLink }}' target='blank'>L'offrir</a>
@@ -102,11 +107,7 @@
             <img id='logo_sup' class='thumbnail' src="{{ MEDIA_URL}}{% thumbnail product.logo 0 200 center %}" alt="logo {{ product.title }}">
         {% endif %}
         <h2>
-            {{ product.title }}
-            {% if product.town %}
-                <span class='text-muted' style='font-weight:lighter;'>, {{ product.town }}
-                </span>
-            {% endif %}
+            {{ product.title }}{% if product.town %}<span class='text-muted' style='font-weight:lighter;'>, {{ product.town }}</span>{% endif %}
         </h2>
         {% if product.presentation_sup %}
             <div>
@@ -114,7 +115,8 @@
             </div>
         {% endif %}
         {% if product.website %}
-            <a href='{{ product.website }}' target='blank'>
+            <a href='{{ product.website }}' target='blank' style='display:inline-block; margin:10px 0;'>
+                <i class='fa fa-lg fa-long-arrow-right'></i>
                 {% if LANGUAGE_CODE == 'fr' %}
                     site web
                 {% else %}
@@ -163,16 +165,34 @@
     {% if LANGUAGE_CODE == 'fr' %}
         <h2 class='text-center'>Vous aimerez aussi </h2>
     {% else %}
-        <h2 class='text-center'>You might be interested in </h2>
+        <h2 class='text-center'>You might also be interested in </h2>
     {% endif %}
     {% for k in related_products %}
         <div class='related col-md-4 col-ms-4 col-xs-4'>
             <a href='{{ k.get_absolute_url }}'>
                 <img class='thumbnail' src="{{ MEDIA_URL}}{% thumbnail k.illustration 400 300 center %}" alt="{{ k.title }}">
+                <h5 class='text-center'>{{ k.productName }}</h5>
             </a>
         </div>
     {% endfor %}
 </div>
+
+<script type="text/javascript">
+$(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+</script>
 {% endblock %}
 
 

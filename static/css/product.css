@@ -91,6 +91,10 @@ a.buy, a.buy:hover{
     display: inline-block;
     margin-right: 20px;
 }
+a#sup_cat, a#sup_cat:hover, a#sup_cat:visited{
+    color: rgb(230,73,72);
+    text-decoration: none;
+}
 #logo_sup{
     max-width: 120px;
 }
@@ -100,8 +104,12 @@ a.buy, a.buy:hover{
 #social.no_team_pic{
     margin-top: 20px;
 }
-#social.no_team_pic a{
-    display: block;
+#social a{
+    display: inline-block;
+    margin: 5px 3px;
+}
+#social a i{
+    font-size: 25px;
 }
 
 #related{
@@ -117,8 +125,17 @@ a.buy, a.buy:hover{
     margin: auto;
     max-width: 50%;
 }
+.related h5{
+    font-size: 12px;
+    color: rgb(41,151,186);
+}
 
 @media screen and (max-width: 768px){
+    h1{
+        margin-bottom: 25px;
+        text-align: center;
+        font-size: 20px;
+    }
     #desktop_info{
         display: none;
     }
@@ -129,7 +146,14 @@ a.buy, a.buy:hover{
     #illustration{
         margin-top: 30px;
     }
+    #startup{
+        text-align: center;
+    }
     #team_pic{
         display: none;
     }
+    .related img{
+    margin: auto;
+    max-width: 100%;
+}
 }
