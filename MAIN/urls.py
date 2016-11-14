@@ -7,6 +7,7 @@ from django.views.i18n import set_language
 
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
+from mezzanine.pages.views import page as homeView
 from .views import *
 
 
@@ -38,7 +39,7 @@ urlpatterns += [
     # one homepage pattern, so if you use a different one, comment this
     # one out.
 
-    url("^$", direct_to_template, {"template": "index.html"}, name="home"),
+    # url("^$", direct_to_template, {"template": "index.html"}, name="home"),
     url(r'^verification/$', verification, name='verification'),
     url(r'^add2list/(?P<pk>(\d+))/$', add2list, name='add2list'),
     url(r'^checklist/(?P<Plist>([0-9]-?)*)/$', checklist, name='checklist'),
@@ -58,7 +59,7 @@ urlpatterns += [
     # should be used if you want to customize the homepage's template.
     # NOTE: Don't forget to import the view function too!
 
-    # url("^$", mezzanine.pages.views.page, {"slug": "/"}, name="home"),
+    url("^$", homeView, {"slug": "/"}, name="home"),
 
     # HOMEPAGE FOR A BLOG-ONLY SITE
     # -----------------------------

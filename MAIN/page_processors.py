@@ -8,6 +8,11 @@ from .models import *
 
 # from mezzanine.core.request import current_request
 
+@processor_for("/")
+def processor_projet(request, page):
+    test = 'OKAY'
+    return locals()
+
 @processor_for(Category)
 def processor_projet(request, page):
     category = Category.objects.get(pk=page.pk)
