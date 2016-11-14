@@ -17,7 +17,7 @@ def processor_projet(request, page):
 
 @processor_for(Category)
 def processor_projet(request, page):
-    category = Category.objects.get(pk=page.pk)
+    category = targetCat = Category.objects.get(pk=page.pk)
     try: 
         products = Product.objects.filter(cat_product=category).order_by('?')[:32]
     except:
@@ -27,8 +27,9 @@ def processor_projet(request, page):
 @processor_for(Product)
 def processor_projet(request, page):
     product = Product.objects.get(pk=page.pk)
+    targetCat = product.cat_product
     try: 
-        related_products = Product.objects.filter(cat_product=product.cat_product).exclude(pk=product.pk).order_by('?')[:3]
+        related_products = Product.objects.filter(cat_product=product.cat_product).exclude(pk=product.pk).order_by('?')[:4]
     except:
         pass
     return locals()

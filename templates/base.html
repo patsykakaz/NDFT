@@ -69,7 +69,7 @@
 </div>
 
 <div class="navbar navbar-default" role="navigation">
-    <div style='background-color:rgb(41,151,186);'>[INFO]</div>
+    <div style='background-color:#00718f;'>[INFO]</div>
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -88,7 +88,7 @@
     </div>
     <div id='all_navCat'>
     {% for cat in all_categories %}
-        <div class='navCat'><a href='{{ cat.get_absolute_url }}'>{{ cat.title }}</a></div>
+        <div class='navCat {% if cat == targetCat %}booyah{% endif%}'><a href='{{ cat.get_absolute_url }}'>{{ cat.title }}</a></div>
     {% endfor %}
     </div>
     {# {% block navbar_search_form %}{% search_form "all" %}{% endblock %} #}

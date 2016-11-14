@@ -74,7 +74,23 @@ $(window).scroll(function(){
     {# </a> #}
 </div>
 
-
+<div id='' class='container'>
+    <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+        <div>
+            <img src='{{ MEDIA_URL}}{% thumbnail "img/sock.jpg" 400 400 center %}' />
+        </div>
+    </div>
+    <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+        <div>
+            <img src='{{ MEDIA_URL}}{% thumbnail "img/lightbulb.jpg" 400 400 center %}' />
+        </div>
+    </div>
+    <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+        <div>
+            <img src='{{ MEDIA_URL}}{% thumbnail "img/ribbon.jpg" 400 400 center %}' />
+        </div>
+    </div>
+</div>
 
 
 <div class='container'>
@@ -82,12 +98,16 @@ $(window).scroll(function(){
         <div class='productBox thumbnail col-lg-3 col-md-3 col-sm-6 col-xs-6'>
             <a href='{{ product.get_absolute_url }}'>
             <div class='productLiner'></div>
-            <img class='img-thumbnail' src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
-            <h2>{{ product.productName }}</h2>
-            <h3>{{ product.title }} {% if product.price %}<span class='text-red'>{{ product.price }}</span>{% endif %}</h3>
+            <img class='img-thumbnail'  src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
+            <h2 class='text-grey'>{{ product.productName }}</h2>
+            <h3>{{ product.title }}</h3>
             {% if product.baseline %}
-            <div class='baseline'><i class='fa fa-arrow-right'></i> {{ product.baseline }}</div>
+            <div class='baseline'>{{ product.baseline }}</div>
+            {% if product.price %}<span class='text-red'>{{ product.price }}</span>{% endif %}
             {% endif %}
+            <div class='discover'>
+                <btn class='discover_btn'>DECOUVRIR</btn>
+            </div>
             </a>
         </div>
     {% endfor %}
@@ -98,12 +118,16 @@ $(window).scroll(function(){
         <div class='productBox thumbnail col-lg-3 col-md-3 col-sm-6 col-xs-6'>
             <a href='{{ product.get_absolute_url }}'>
             <div class='productLiner'></div>
-            <img class='img-thumbnail' src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
-            <h2>{{ product.productName }}</h2>
-            <h3>{{ product.title }} {% if product.price %}<span class='text-red'>{{ product.price }}</span>{% endif %}</h3>
+            <img class='img-thumbnail'  src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
+            <h2 class='text-grey'>{{ product.productName }}</h2>
+            <h3>{{ product.title }}</h3>
             {% if product.baseline %}
-            <div class='baseline'><i class='fa fa-arrow-right'></i> {{ product.baseline }}</div>
+            <div class='baseline'>{{ product.baseline }}</div>
+            {% if product.price %}<span class='text-red'>{{ product.price }}</span>{% endif %}
             {% endif %}
+            <div class='discover'>
+                <btn class='discover_btn'>DECOUVRIR</btn>
+            </div>
             </a>
         </div>
     {% endfor %}

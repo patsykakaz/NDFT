@@ -21,11 +21,15 @@
                 <a href='{{ product.get_absolute_url }}'>
                 <div class='productLiner'></div>
                 <img class='img-thumbnail'  src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
-                <h2>{{ product.productName }}</h2>
-                <h3>{{ product.title }} {% if product.price %}<span class='text-red'>{{ product.price }}</span>{% endif %}</h3>
+                <h2 class='text-grey'>{{ product.productName }}</h2>
+                <h3>{{ product.title }}</h3>
                 {% if product.baseline %}
-                <div class='baseline'><i class='fa fa-arrow-right'></i> {{ product.baseline }}</div>
+                <div class='baseline'>{{ product.baseline }}</div>
+                {% if product.price %}<span class='text-red'>{{ product.price }}</span>{% endif %}
                 {% endif %}
+                <div class='discover'>
+                    <btn class='discover_btn'>DECOUVRIR</btn>
+                </div>
                 </a>
             </div>
         {% endfor %}

@@ -10,12 +10,15 @@ a, a:hover, a:visited{
     text-decoration: none;
 }
 
+.text-grey{
+    color: #2d2f30;
+}
 .text-blue{
     font-weight: lighter;
-    color: rgb(41,151,186);
+    color: #00718f;
 }
 .text-red{
-    color: rgb(230,73,72);
+    color: #e42a25;
 }
 
 #main{
@@ -41,10 +44,10 @@ img{
 }
 
 #logo{
-    margin: 0;
+    margin: 15px 0;
 }#logo img{
     max-width: 50%;
-    max-width: 350px;
+    max-width: 200px;
 }
 #all_navCat{
     max-width: 1170px;
@@ -68,9 +71,9 @@ img{
     -o-transition: color 0.1s ease-in-out;
     transition: color 0.1s ease-in-out;
 }.navCat a{
-    color: rgb(41,151,186);
-}.navCat a:hover{
-    color: rgb(230,73,72);
+    color: #2d2f30;
+}.navCat a:hover, .navCat.booyah a{
+    color: #e42a25;;
 }
 
 
@@ -79,7 +82,7 @@ footer{
     min-height: 120px;
     margin-top: 150px;
     padding: 40px 0 20px 0;
-    background-color: rgb(41,151,186);
+    background-color: #00718f;
     color: white;
 }
 footer a i{
@@ -91,7 +94,7 @@ footer a i{
     -o-transition: color 0.1s ease-in-out;
     transition: color 0.1s ease-in-out;
 }footer a:hover i{
-    color: rgb(230,73,72);
+    color: #e42a25;;
 }
 
 
