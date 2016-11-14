@@ -6,15 +6,17 @@
     text-align: center;
     border: 1px solid transparent;
     border-radius: 0;
-    -moz-transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
 }.productBox:hover{
     background-color: rgb(41,151,186);
 }
 .productBox:hover h2, .productBox:hover h3, .productBox:hover .baseline, .productBox:hover .text-muted{
     color: #FFFFFF;
+}.productBox:hover .img-thumbnail{
+    border-color: rgb(230,73,72);
 }
 .productBox a, .productBox a:hover, .productBox a:visited, .productBox a:focus{
     color: #777;
