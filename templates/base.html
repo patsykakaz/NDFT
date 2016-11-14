@@ -82,7 +82,7 @@
             {% include 'includes/language_selector.html' %}
         </div>
         <div id='logo' class='text-center'>
-            <img src='{% static "img/logo_NDFT.jpg" %}'>
+            <a href='/'><img src='{% static "img/logo_NDFT.jpg" %}'></a>
         </div>
     </div>
     <div id='all_navCat'>
@@ -124,7 +124,12 @@
 
 
 <footer>
-    <div class='container'>FOOTER + SOCIAL</div>
+    <div class='container'>
+        <div class='col-md-12 text-center'>
+            <a href='//facebook.com/noeldelafrenchtech'><i class='fa fa-3x fa-facebook-square'></i></a>
+            <a href='//twitter.com/noelfrenchtech'><i class='fa fa-3x fa-twitter-square'></i></a>
+        </div>
+    </div>
 </footer>
 
 {% block footer_js %}

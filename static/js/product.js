@@ -17,12 +17,12 @@ function illustration(){
         );
     $('.small_img').mouseover(function(){
         target = $('#illustration .second:eq('+$(this).attr('rel')+')');
-        console.log(target);
+        // console.log(target);
         target.addClass('lift');
     });
     $('.small_img').mouseout(function(){
         target = $('#illustration .second:eq('+$(this).attr('rel')+')');
-        console.log(target);
+        // console.log(target);
         target.removeClass('lift');
     });
 }

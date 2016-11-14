@@ -23,7 +23,7 @@ function navCat(){
     $("#all_navCat").removeClass('hide');
     if($('#all_navCat').outerHeight() > $('.navCat').outerHeight()){
         Fsize = parseFloat($('.navCat').css('font-size'))-0.05;
-        console.log(Fsize);
+        // console.log(Fsize);
         $('.navCat').css('font-size',Fsize);
         $('.navCat').attr('rel',Fsize);
         if(Fsize>0){
