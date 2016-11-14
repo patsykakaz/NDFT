@@ -5,6 +5,7 @@
 }
 
 .navbar.navbar-default{
+    margin-bottom: 0;
     opacity: 0;
     -moz-transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
@@ -19,4 +20,14 @@
 .img-thumbnail{
     border-color: rgb(41,151,186);
     border-radius: 0;
+}
+
+#carousel{
+    margin-bottom: 40px;:
+}
+.carousel-indicators li{
+    border: 1px solid rgb(41,151,186);
+}
+.carousel-indicators li.active{
+    background-color: rgb(41,151,186);
 }

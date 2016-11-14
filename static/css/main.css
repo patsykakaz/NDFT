@@ -40,7 +40,8 @@ img{
 #logo{
     margin: 50px 0;
 }#logo img{
-    max-width: 100%;
+    max-width: 50%;
+    max-width: 200px;
 }
 #all_navCat{
     max-width: 1170px;

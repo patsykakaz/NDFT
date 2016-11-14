@@ -23,16 +23,26 @@
 
 <div id="carousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
-    {# <ol class="carousel-indicators"> #}
-        {# <li data-target="#carousel" data-slide-to="0" class="active"></li> #}
-        {# <li data-target="#carousel" data-slide-to="1"></li> #}
-        {# <li data-target="#carousel" data-slide-to="2"></li> #}
-    {# </ol> #}
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-        <div class="item active ">
-            <a href='{{ k.get_absolute_url }}'>
-                <img src="{{ MEDIA_URL}}{% thumbnail k.illustration_banner 0 0 center %}" alt="illustration {{ k.title }}">
+        <div class="item active">
+            <a href='#'>
+                <img src="{% static "img/carrousel-NFT-1.jpg" %}">
+            </a>
+        </div>
+        <div class="item">
+            <a href='#'>
+                <img src="{% static "img/carrousel-NFT-2.jpg" %}">
+            </a>
+        </div>
+        <div class="item">
+            <a href='#'>
+                <img src="{% static "img/carrousel-NFT-3.jpg" %}">
             </a>
         </div>
     </div>
