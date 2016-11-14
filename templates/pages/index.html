@@ -19,9 +19,9 @@
 <script src="{% static "js/category.js" %}"></script>
 <script type="text/javascript">
 $(window).scroll(function(){
-    if($("#slotMachine").offset().top < $(window).scrollTop() + $(window).height()/1.3 && !$(this).hasClass('deploy')){
+    if($("#slotMachine").offset().top > $(window).scrollTop() + $(window).height()/1.3 && !$("#slotMachine").hasClass('deploy')){
         $(this).addClass('deploy');
-        }
+    }
 });
 </script>
 {% endblock %}
@@ -84,9 +84,9 @@ $(window).scroll(function(){
             <div class='productLiner'></div>
             <img class='img-thumbnail' src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
             <h2>{{ product.productName }}</h2>
-            <h3>{{ product.title }} {% if product.price %}<span class='text-muted'>{{ product.price }}</span>{% endif %}</h3>
+            <h3>{{ product.title }} {% if product.price %}<span class='text-red'>{{ product.price }}</span>{% endif %}</h3>
             {% if product.baseline %}
-            <div class='baseline'>{{ product.baseline }}</div>
+            <div class='baseline'><i class='fa fa-arrow-right'></i> {{ product.baseline }}</div>
             {% endif %}
             </a>
         </div>
@@ -100,9 +100,9 @@ $(window).scroll(function(){
             <div class='productLiner'></div>
             <img class='img-thumbnail' src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
             <h2>{{ product.productName }}</h2>
-            <h3>{{ product.title }} {% if product.price %}<span class='text-muted'>{{ product.price }}</span>{% endif %}</h3>
+            <h3>{{ product.title }} {% if product.price %}<span class='text-red'>{{ product.price }}</span>{% endif %}</h3>
             {% if product.baseline %}
-            <div class='baseline'>{{ product.baseline }}</div>
+            <div class='baseline'><i class='fa fa-arrow-right'></i> {{ product.baseline }}</div>
             {% endif %}
             </a>
         </div>

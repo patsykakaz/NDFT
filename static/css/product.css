@@ -45,6 +45,10 @@ h3{
     height: 100%;
     margin: 0;
     /*background-color: #FFFFFF;*/
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 #illustration .first{
     opacity: 1;
@@ -113,13 +117,14 @@ a#sup_cat, a#sup_cat:hover, a#sup_cat:visited{
 }
 
 #related{
-
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 #related h2{
     margin-top: 30px;
     margin-bottom: 45px;
-}
-.related{
 }
 .related img{
     margin: auto;
@@ -128,6 +133,11 @@ a#sup_cat, a#sup_cat:hover, a#sup_cat:visited{
 .related h5{
     font-size: 12px;
     color: rgb(41,151,186);
+}
+.related:hover h5{
+    color: rgb(230,73,72);
+}.related:hover .thumbnail{
+    border-color: rgb(230,73,72);
 }
 
 @media screen and (max-width: 768px){

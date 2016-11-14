@@ -1,3 +1,10 @@
+#banner{
+    margin-bottom: 60px;
+}
+#banner img{
+    width: 100%;
+}
+
 .productBox{
     height: 320px;
     padding: 20px 20px 10px 20px;
@@ -13,7 +20,7 @@
 }.productBox:hover{
     background-color: rgb(230,73,72);
 }
-.productBox:hover h2, .productBox:hover h3, .productBox:hover .baseline, .productBox:hover .text-muted{
+.productBox:hover h2, .productBox:hover h3, .productBox:hover .baseline, .productBox:hover .text-muted, .productBox:hover .text-red{
     color: #FFFFFF;
 }.productBox:hover .img-thumbnail{
     border-color: rgb(230,73,72);
@@ -34,6 +41,31 @@
 .productBox h3{
     margin: 10px 0 5px 0;
     font-size: 14px;
+    font-weight: lighter;
+}
+.productBox .baseline{
+    text-align: left;
+}.productBox .baseline i{
+    color: rgb(230,73,72);
+}.productBox:hover .baseline i{
+    color: #FFFFFF;
+}
+
+
+#parrain{
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+#parrain .liner{
+    height: 0;
+    margin-bottom: 40px;
+    border-top: 1px solid rgb(230,73,72);
+}
+#parrain h2{
+    color: rgb(230,73,72);
+}
+#logo_parrain{
+    margin-bottom: 20px;
 }
 .presentation{
     text-align: justify;

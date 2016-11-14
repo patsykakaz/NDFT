@@ -64,6 +64,10 @@
 
 <body id="{% block body_id %}body{% endblock %}">
 
+<div id='i18n' class='col-md-12'>
+    {% include 'includes/language_selector.html' %}
+</div>
+
 <div class="navbar navbar-default" role="navigation">
     <div style='background-color:rgb(41,151,186);'>[INFO]</div>
     <div class="container">
@@ -77,9 +81,6 @@
             {# {% block navbar_title %} #}
             {# {% if settings.SITE_TITLE %}<a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>{% endif %} #}
             {# {% endblock%} #}
-        </div>
-        <div id='i18n' class='col-md-12'>
-            {% include 'includes/language_selector.html' %}
         </div>
         <div id='logo' class='text-center'>
             <a href='/'><img src='{% static "img/logo_NDFT.jpg" %}'></a>

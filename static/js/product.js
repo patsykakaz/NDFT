@@ -19,10 +19,12 @@ function illustration(){
         target = $('#illustration .second:eq('+$(this).attr('rel')+')');
         // console.log(target);
         target.addClass('lift');
+        $('#illustration img:first').css('opacity',0);
     });
     $('.small_img').mouseout(function(){
         target = $('#illustration .second:eq('+$(this).attr('rel')+')');
         // console.log(target);
+        $('#illustration img:first').css('opacity',1);
         target.removeClass('lift');
     });
 }
