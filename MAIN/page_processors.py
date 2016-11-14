@@ -10,7 +10,9 @@ from .models import *
 
 @processor_for("/")
 def processor_projet(request, page):
-    test = 'OKAY'
+    random_products = Product.objects.all().order_by('?')[:16]
+    bandit_products = Product.objects.exclude(pk__in=random_products)
+    print len(bandit_products)
     return locals()
 
 @processor_for(Category)

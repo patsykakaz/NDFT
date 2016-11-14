@@ -1,10 +1,52 @@
-{% extends "pages/richtextpage.html" %}
+{% extends "base.html" %}
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/category.css" %}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static "js/category.js" %}"></script>
+{% endblock %}
+
+
+{# {% block meta_title %}{% trans "Home" %}{% endblock %} #}
+{# {% block title %}{% trans "Home" %}{% endblock %} #}
+
+{# {% block breadcrumb_menu %} #}
+{# <li class="active">{% trans "Home" %}</li> #}
+{# {% endblock %} #}
 
 {% block main %}
-<!--
-This template is provided as a custom template for the homepage, for
-when it is configured as an editable page in the navigation tree. Feel
-free to modify it.
--->
-{{ block.super }}
+<div class='container'>
+    {% for product in random_products|slice:":8" %}
+        <div class='productBox thumbnail col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+            <a href='{{ product.get_absolute_url }}'>
+            <div class='productLiner'></div>
+            <img class='img-thumbnail' src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
+            <h2>{{ product.productName }}</h2>
+            <h3>{{ product.title }} {% if product.price %}<span class='text-muted'>{{ product.price }}</span>{% endif %}</h3>
+            {% if product.baseline %}
+            <div class='baseline'>{{ product.baseline }}</div>
+            {% endif %}
+            </a>
+        </div>
+    {% endfor %}
+</div>
+<div style='height:50px; margin-bottom:20px; background-color:rgb(41,151,186);'>SLOT</div>
+<div class='container'>
+    {% for product in random_products|slice:"8:" %}
+        <div class='productBox thumbnail col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+            <a href='{{ product.get_absolute_url }}'>
+            <div class='productLiner'></div>
+            <img class='img-thumbnail' src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
+            <h2>{{ product.productName }}</h2>
+            <h3>{{ product.title }} {% if product.price %}<span class='text-muted'>{{ product.price }}</span>{% endif %}</h3>
+            {% if product.baseline %}
+            <div class='baseline'>{{ product.baseline }}</div>
+            {% endif %}
+            </a>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

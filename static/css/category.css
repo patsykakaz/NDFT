@@ -1,5 +1,5 @@
 .productBox{
-    height: 360px;
+    height: 320px;
     padding: 20px 20px 10px 20px;
     margin-bottom: 20px;
     overflow: auto;
@@ -11,7 +11,10 @@
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }.productBox:hover{
-    border: 1px solid rgb(41,151,186);
+    background-color: rgb(41,151,186);
+}
+.productBox:hover h2, .productBox:hover h3, .productBox:hover .baseline, .productBox:hover .text-muted{
+    color: #FFFFFF;
 }
 .productBox a, .productBox a:hover, .productBox a:visited, .productBox a:focus{
     color: #777;

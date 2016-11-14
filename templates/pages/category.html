@@ -20,7 +20,7 @@
             <div class='productBox thumbnail col-lg-3 col-md-3 col-sm-6 col-xs-6'>
                 <a href='{{ product.get_absolute_url }}'>
                 <div class='productLiner'></div>
-                <img src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
+                <img class='img-thumbnail'  src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
                 <h2>{{ product.productName }}</h2>
                 <h3>{{ product.title }} {% if product.price %}<span class='text-muted'>{{ product.price }}</span>{% endif %}</h3>
                 {% if product.baseline %}
