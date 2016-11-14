@@ -11,7 +11,7 @@
     -o-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
 }.productBox:hover{
-    background-color: rgb(41,151,186);
+    background-color: rgb(230,73,72);
 }
 .productBox:hover h2, .productBox:hover h3, .productBox:hover .baseline, .productBox:hover .text-muted{
     color: #FFFFFF;
