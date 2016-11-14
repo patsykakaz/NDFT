@@ -9,7 +9,7 @@
     position: relative;
     height: 360px;
     padding: 20px 20px 10px 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     overflow: hidden;
     text-align: center;
     border: none;
@@ -19,15 +19,15 @@
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }.productBox:hover{
-    background-color: #e42a25;
+    background-color: rgb(240,240,240);
 }
 .productBox:hover h2, .productBox:hover h3, .productBox:hover .baseline, .productBox:hover .text-muted, .productBox:hover .text-red{
-    color: #FFFFFF;
+    /*color: #FFFFFF;*/
 }.productBox:hover .img-thumbnail{
-    border-color: #e42a25;
+    border-color: #00718f;
 }
 .productBox a, .productBox a:hover, .productBox a:visited, .productBox a:focus{
-    color: #777;
+    /*color: #777;*/
     text-decoration: none
 }
 .productBox img{
@@ -44,11 +44,10 @@
     font-size: 14px;
     color: #777;
 }
-.productBox .baseline i{
-    color: #e42a25;
-}.productBox:hover .baseline i{
-    color: #FFFFFF;
+.productBox .baseline{
+    color: #777;
 }
+
 .productBox .discover{
     position: absolute;
     bottom: 2px;
@@ -62,19 +61,21 @@
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-}.productBox:hover .discover{
-    background-color: #e42a25;
+}
+.productBox:hover .discover{
+    background-color: rgb(240,240,240);
 }
 .productBox .discover_btn{
     margin-bottom: 10px;
     padding: 3px 7px;
     background-color: #e42a25;
     color: #FFFFFF;
-    border-radius: 2px;
-}.productBox:hover .discover_btn{
-    background-color: #FFFFFF;
-    color: #e42a25;
+    /*border-radius: 2px;*/
 }
+/*.productBox:hover .discover_btn{
+    background-color: rgb(240,240,240);
+    color: #2d2f30;
+}*/
 
 
 #parrain{
@@ -107,3 +108,8 @@
 }.productBox:hover .productLiner{
     border-color: transparent;
 }*/
+@media screen and (max-width: 768px){
+    .productBox{
+        margin-bottom: 25px;
+    }
+}

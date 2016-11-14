@@ -4,6 +4,17 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static "css/category.css" %}">
 <style type="text/css">
+    #tokens{
+        margin-bottom: 75px;
+        text-align: center;
+    }
+    .token img{
+        max-width: 100%;
+        max-width: 100px;
+        margin-bottom: 10px;
+    }.token .caption{
+        text-transform: uppercase;
+    }
     #slotMachine{
         height: 0px;
         margin-bottom: 20px;
@@ -11,6 +22,13 @@
         background-color: rgb(41,151,186);
     }#slotMachine.deploy{
         height: 100px;
+    }
+    @media screen and (max-width: 768px){
+        #tokens{
+            margin-bottom: 40px;
+        }#tokens img{
+            max-width: 70px;
+        }
     }
  </style>
 {% endblock %}
@@ -74,20 +92,29 @@ $(window).scroll(function(){
     {# </a> #}
 </div>
 
-<div id='' class='container'>
+<div id='tokens' class='container'>
     <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
-        <div>
-            <img src='{{ MEDIA_URL}}{% thumbnail "img/sock.jpg" 400 400 center %}' />
+        <div class='token'>
+            <img src='{% static "img/sock.jpg" %}' />
+            <div class='caption text-grey'>
+                {% if LANGUAGE_CODE == 'fr' %}<strong>200</strong> cadeaux créés par des startups{% else %}<strong>200</strong> GIFTS CREATED BY STARTUPS{% endif %}
+            </div>
         </div>
     </div>
     <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
-        <div>
-            <img src='{{ MEDIA_URL}}{% thumbnail "img/lightbulb.jpg" 400 400 center %}' />
+        <div class='token'>
+            <img src='{% static "img/lightbulb.jpg" %}' />
+            <div class='caption text-grey'>
+                {% if LANGUAGE_CODE == 'fr' %}séléctionnés pour leur <strong>originalité</strong>{% else %}SELECTED FOR THEIR <strong>ORIGINALITY</strong> {% endif %}
+            </div>
         </div>
     </div>
     <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
-        <div>
-            <img src='{{ MEDIA_URL}}{% thumbnail "img/ribbon.jpg" 400 400 center %}' />
+        <div class='token'>
+            <img src='{% static "img/ribbon.jpg" %}' />
+            <div class='caption text-grey'>
+                {% if LANGUAGE_CODE == 'fr' %}issus de <strong>l'innovation française</strong>{% else %}COMING FROM <strong>FRENCH INNOVATION </strong>{% endif %}
+            </div>
         </div>
     </div>
 </div>
@@ -103,7 +130,7 @@ $(window).scroll(function(){
             <h3>{{ product.title }}</h3>
             {% if product.baseline %}
             <div class='baseline'>{{ product.baseline }}</div>
-            {% if product.price %}<span class='text-red'>{{ product.price }}</span>{% endif %}
+            {% if product.price %}<span class='text-blue'>{{ product.price }}</span>{% endif %}
             {% endif %}
             <div class='discover'>
                 <btn class='discover_btn'>DECOUVRIR</btn>
@@ -123,7 +150,7 @@ $(window).scroll(function(){
             <h3>{{ product.title }}</h3>
             {% if product.baseline %}
             <div class='baseline'>{{ product.baseline }}</div>
-            {% if product.price %}<span class='text-red'>{{ product.price }}</span>{% endif %}
+            {% if product.price %}<span class='text-blue'>{{ product.price }}</span>{% endif %}
             {% endif %}
             <div class='discover'>
                 <btn class='discover_btn'>DECOUVRIR</btn>
