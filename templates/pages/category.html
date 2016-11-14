@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load pages_tags mezzanine_tags i18n staticfiles %}
+{% load mezzanine_tags pages_tags mezzanine_tags i18n staticfiles %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static "css/category.css" %}">
@@ -12,7 +12,7 @@
 
 {% block main %}
     <div id='banner'>
-        <img src="{{ MEDIA_URL}}{% thumbnail category.illustration 0 500 center %}" alt="illustration {{ category.title }}">
+        <img src="{{ MEDIA_URL}}{% thumbnail category.illustration 0 400 center %}" alt="illustration {{ category.title }}">
     </div>
 
     <div id='products' class='container'>
@@ -32,9 +32,11 @@
     </div>
 
     {% if category.presentation_parrain %}
-        <div id='parrain'>
-            <img src="{{ MEDIA_URL}}{% thumbnail category.logo_parrain 400 300 center %}" alt="illustration {{ produit.productName }}">
-            <div style='display:inline-block;'>{{ category.presentation_parrain }}</div>
+        <div id='parrain' class='container'>
+            <div class='col-lg-12 col-md-12 col-sm-12 '>
+                <img src="{{ MEDIA_URL}}{% thumbnail category.logo_parrain 400 300 center %}" alt="illustration {{ produit.productName }}">
+                <div style='display:inline-block;'>{{ category.presentation_parrain|richtext_filters|safe }}</div>
+            </div>
         </div>
     {% endif %}
 {% endblock %}
