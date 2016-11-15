@@ -11,3 +11,4 @@ settings.py
 !/static/js
 !/static/img
 !/static/fonts
+!/static/files

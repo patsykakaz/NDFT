@@ -42,7 +42,13 @@
                 {% if product.price %}<span class='text-blue'>{{ product.price }}</span>{% endif %}
                 {% endif %}
                 <div class='discover'>
-                    <btn class='discover_btn'>DECOUVRIR</btn>
+                    <btn class='discover_btn'>
+                        {% if LANGUAGE_CODE == 'fr' %}
+                            Découvrir
+                        {% else %}
+                            More
+                        {% endif %}
+                    </btn>
                 </div>
                 </a>
             </div>
