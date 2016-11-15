@@ -18,18 +18,25 @@
 }
 
 .img-thumbnail{
-    border-color: rgb(41,151,186);
+    border-color: #00718f;
     border-radius: 0;
 }
 
 #carousel{
     margin-bottom: 65px;:
 }
+.carousel-indicators{
+    bottom: 4px;
+}
 .carousel-indicators li{
-    border: 1px solid rgb(41,151,186);
+    width: 16px;
+    height: 16px;
+    border: 1px solid #00718f;
 }
 .carousel-indicators li.active{
-    background-color: rgb(41,151,186);
+    width: 16px;
+    height: 16px;
+    background-color: #00718f;
 }
 
 @media screen and (max-width: 768px){

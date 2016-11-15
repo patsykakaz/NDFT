@@ -65,6 +65,9 @@ def sharelist(request):
     print shareURL
     return render(request,'pages/sharelist.html',locals())
 
+def all(request):
+    all_products = Product.objects.all()
+    return render(request,'pages/index.html',locals())
 
 
 

@@ -110,6 +110,7 @@
 }*/
 @media screen and (max-width: 768px){
     .productBox{
+        height: 360px;
         margin-bottom: 25px;
     }
 }

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load mezzanine_tags pages_tags mezzanine_tags i18n staticfiles %}
+{% load mezzanine_tags pages_tags mezzanine_tags i18n staticfiles keyword_tags %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static "css/category.css" %}">
@@ -9,6 +9,20 @@
 {% block extra_js %}
 <script src="{% static "js/category.js" %}"></script>
 {% endblock %}
+
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
 
 {% block main %}
     <div id='banner'>

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load pages_tags mezzanine_tags i18n staticfiles %}
+{% load pages_tags mezzanine_tags i18n staticfiles keyword_tags %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static "css/category.css" %}">
@@ -7,6 +7,10 @@
     #tokens{
         margin-bottom: 75px;
         text-align: center;
+    }
+    .token{
+        margin-bottom: 15px;
+        font-family: 'Montserrat', sans-serif;
     }
     .token img{
         max-width: 100%;
@@ -23,6 +27,11 @@
     }#slotMachine.deploy{
         height: 100px;
     }
+
+    #all_products h2{
+        font-size: 20px;
+    }
+
     @media screen and (max-width: 768px){
         #tokens{
             margin-bottom: 40px;
@@ -44,8 +53,20 @@ $(window).scroll(function(){
 </script>
 {% endblock %}
 
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
 
-{# {% block meta_title %}{% trans "Home" %}{% endblock %} #}
+{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
+
 {# {% block title %}{% trans "Home" %}{% endblock %} #}
 
 {# {% block breadcrumb_menu %} #}
@@ -71,12 +92,12 @@ $(window).scroll(function(){
             </a>
         </div>
         <div class="item">
-            <a href='#'>
+            <a href='/all'>
                 <img src="{% static "img/carrousel-NFT-2.jpg" %}">
             </a>
         </div>
         <div class="item">
-            <a href='#'>
+            <a href='{% static "files/CERTIF-NFT.pdf" %}' download>
                 <img src="{% static "img/carrousel-NFT-3.jpg" %}">
             </a>
         </div>
@@ -120,6 +141,7 @@ $(window).scroll(function(){
 </div>
 
 
+{% if not all_products %}
 <div class='container'>
     {% for product in random_products|slice:":8" %}
         <div class='productBox thumbnail col-lg-3 col-md-3 col-sm-6 col-xs-6'>
@@ -160,7 +182,43 @@ $(window).scroll(function(){
     {% endfor %}
 </div>
 
+{% elif all_products %}
+<div id='all_products' class='container'>
+    <h2 class='text-center text-grey'>
+        {% if LANGUAGE_CODE == 'fr' %}
+            TOUS NOS PRODUITS
+        {% else %}
+            ALL OUR PRODUCTS
+        {% endif %}
+    </h2>
+    {% for product in all_products %}
+        <div class='productBox thumbnail col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+            <a href='{{ product.get_absolute_url }}'>
+            <div class='productLiner'></div>
+            <img class='img-thumbnail'  src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
+            <h2 class='text-grey'>{{ product.productName }}</h2>
+            <h3>{{ product.title }}</h3>
+            {% if product.baseline %}
+            <div class='baseline'>{{ product.baseline }}</div>
+            {% if product.price %}<span class='text-blue'>{{ product.price }}</span>{% endif %}
+            {% endif %}
+            <div class='discover'>
+                <btn class='discover_btn'>DECOUVRIR</btn>
+            </div>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
 <script type="text/javascript">
-    $('.carousel').carousel();
+    $(window).load(function(){
+        if($('#all_products').length){
+            target = $('#all_products');
+            $('html, body').animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
+    });
 </script>
 {% endblock %}

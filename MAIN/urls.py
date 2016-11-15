@@ -44,6 +44,8 @@ urlpatterns += [
     url(r'^add2list/(?P<pk>(\d+))/$', add2list, name='add2list'),
     url(r'^checklist/(?P<Plist>([0-9]-?)*)/$', checklist, name='checklist'),
     url(r'^wishlist/$', sharelist, name='sharelist'),
+    url(r'^all/$', all, name='all'),
+
 
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
     # ---------------------------------------------
