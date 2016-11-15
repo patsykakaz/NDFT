@@ -62,7 +62,6 @@ def sharelist(request):
     # no product in the list
         pass
     shareURL = shareURL
-    print shareURL
     return render(request,'pages/sharelist.html',locals())
 
 def all(request):

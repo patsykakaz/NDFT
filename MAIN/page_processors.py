@@ -5,6 +5,7 @@
 # from django.shortcuts import render, redirect
 from mezzanine.pages.page_processors import processor_for
 from .models import *
+from mezzanine.blog.models import BlogPost
 
 # from mezzanine.core.request import current_request
 
@@ -12,6 +13,7 @@ from .models import *
 def processor_projet(request, page):
     random_products = Product.objects.all().order_by('?')[:16]
     bandit_products = Product.objects.exclude(pk__in=random_products)
+    last_blog = BlogPost.objects.last()
     # print len(bandit_products)
     return locals()
 

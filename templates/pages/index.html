@@ -137,6 +137,13 @@ $(window).scroll(function(){
                 <img src="{% static "img/carrousel-NFT-3.jpg" %}">
             </a>
         </div>
+        {% if last_blog %}
+        <div class="item">
+            <a href='{{ last_blog.get_absolute_url }}'>
+                <img src="{% static last_blog.featured_image %}">
+            </a>
+        </div>
+        {% endif %}
     </div>
     <!-- Controls -->
     {# <a class="left carousel-control" href="#carousel" role="button" data-slide="prev"> #}
@@ -267,14 +274,14 @@ $(window).scroll(function(){
 
 <div id='preFooter' class='container'>
     <div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-        <a href=''>
+        <a href='/pop-up-store'>
             <div class='box'>
                 <h2 class='text-blue text-center'>POP-UP STORE</h2>
             </div>
         </a>
     </div>
     <div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-        <a href=''>
+        <a href='/pourquoi-le-noël-de-la-french-tech'>
             <div class='box'>
                 <h2 class='text-blue text-center'>
                     {% if LANGUAGE_CODE == 'fr' %}
@@ -287,7 +294,7 @@ $(window).scroll(function(){
         </a>
     </div>
     <div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-        <a href=''>
+        <a href='/parrains'>
             <div class='box'>
                 <h2 class='text-blue text-center'>
                     {% if LANGUAGE_CODE == 'fr' %}
@@ -300,7 +307,7 @@ $(window).scroll(function(){
         </a>
     </div>
     <div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-        <a href=''>
+        <a href='/officiels'>
             <div class='box'>
                 <h2 class='text-blue text-center'>
                     {% if LANGUAGE_CODE == 'fr' %}
@@ -332,8 +339,7 @@ $(window).scroll(function(){
         $('#preFooter .box').each(function(){
             $(this).outerHeight(refH);
             target = $(this).children('h2');
-            target.css('margin-top', ($(this).outerHeight() - target.outerHeight())/2);
-            console.log($(this).outerHeight());
+            target.css('margin-top', ($(this).height() - target.outerHeight())/2);
         });
     });
 </script>

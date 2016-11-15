@@ -71,11 +71,14 @@
     background-color: #e42a25;
     color: #FFFFFF;
     /*border-radius: 2px;*/
+    -moz-transition: all 0s ease-in-out;
+    -webkit-transition: all 0s ease-in-out;
+    -o-transition: all 0s ease-in-out;
+    transition: all 0s ease-in-out;
 }
-/*.productBox:hover .discover_btn{
-    background-color: rgb(240,240,240);
-    color: #2d2f30;
-}*/
+.productBox:hover .discover_btn{
+    background-color: #00718f;
+}
 
 
 #parrain{
