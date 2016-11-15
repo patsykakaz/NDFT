@@ -289,17 +289,29 @@ Le Noël de la French Tech est un collectif de près de 200 start-ups française
     </div>
     <div class='box col-lg-3 col-md-3 col-sm-6 col-xs-6'>
         <a href='/pourquoi-le-noël-de-la-french-tech'>
-            <img class='img-thumbnail' src='{% static "img/Image-pourquoi.jpg" %}' >
+            {% if LANGUAGE_CODE == 'fr' %}
+                <img class='img-thumbnail' src='{% static "img/Image-pourquoi.jpg" %}' >
+            {% else %}
+                <img class='img-thumbnail' src='{% static "img/Image-pourquoi-UK.jpg" %}' >
+            {% endif %}
         </a>
     </div>
     <div class='box col-lg-3 col-md-3 col-sm-6 col-xs-6'>
         <a href='/parrains'>
-            <img class='img-thumbnail' src='{% static "img/Image-parrain.jpg" %}' >
+            {% if LANGUAGE_CODE == 'fr' %}
+                <img class='img-thumbnail' src='{% static "img/Image-parrain.jpg" %}' >
+            {% else %}
+                <img class='img-thumbnail' src='{% static "img/Image-parrain-UK.jpg" %}' >
+            {% endif %}
         </a>
     </div>
     <div class='box col-lg-3 col-md-3 col-sm-6 col-xs-6'>
         <a href='/officiels'>
-            <img class='img-thumbnail' src='{% static "img/Image-officiel.jpg" %}' >
+            {% if LANGUAGE_CODE == 'fr' %}
+                <img class='img-thumbnail' src='{% static "img/Image-officiel.jpg" %}' >
+            {% else %}
+                <img class='img-thumbnail' src='{% static "img/Image-officiel-UK.jpg" %}' >
+            {% endif %}
         </a>
     </div>
 </div>
