@@ -141,6 +141,7 @@ $(window).scroll(function(){
             </a>
         </div>
         {% if last_blog %}
+        <script type="text/javascript">console.log('lastBlog');</script>
         <div class="item">
             <a href='{{ last_blog.get_absolute_url }}'>
                 {# <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 1200 0 %}"> #}

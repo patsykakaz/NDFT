@@ -10,6 +10,7 @@ from django.http import Http404
 
 from mezzanine.conf import settings
 from models import *
+from mezzanine.blog.models import BlogPost
 
 class MenuMiddleware(object):
     def process_template_response(self, request, response):
