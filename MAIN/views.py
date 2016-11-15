@@ -66,7 +66,7 @@ def sharelist(request):
     return render(request,'pages/sharelist.html',locals())
 
 def all(request):
-    all_products = Product.objects.all()
+    all_products = Product.objects.all().order_by('?')
     return render(request,'pages/index.html',locals())
 
 

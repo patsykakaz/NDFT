@@ -32,11 +32,43 @@
         font-size: 20px;
     }
 
+    #preFooter{
+        margin-top: 75px;
+    }
+    #preFooter .box{
+        width: 100%;
+        padding: 20px;
+        background-color: rgb(240,240,240);
+        -moz-transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+    #preFooter a, #preFooter a:hover{
+        text-decoration: none;
+    }
+    #preFooter .box h2{
+        margin: 20px 0;
+        font-size: 18px;
+    }
+    footer{
+        margin-top: 75px;
+    }
+
     @media screen and (max-width: 768px){
         #tokens{
             margin-bottom: 40px;
         }#tokens img{
             max-width: 70px;
+        }
+        #preFooter{
+            margin-top: 50px;
+        }
+        #preFooter .box{
+            padding: 10px;
+        }
+        footer{
+            margin-top: 50px;
         }
     }
  </style>
@@ -92,7 +124,11 @@ $(window).scroll(function(){
             </a>
         </div>
         <div class="item">
+            {% if LANGUAGE_CODE == 'fr' %}
+            <a href='/TousNosBeauxProduits'>
+            {% else %}
             <a href='/all'>
+            {% endif %}
                 <img src="{% static "img/carrousel-NFT-2.jpg" %}">
             </a>
         </div>
@@ -229,6 +265,55 @@ $(window).scroll(function(){
 </div>
 {% endif %}
 
+<div id='preFooter' class='container'>
+    <div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+        <a href=''>
+            <div class='box'>
+                <h2 class='text-blue text-center'>POP-UP STORE</h2>
+            </div>
+        </a>
+    </div>
+    <div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+        <a href=''>
+            <div class='box'>
+                <h2 class='text-blue text-center'>
+                    {% if LANGUAGE_CODE == 'fr' %}
+                        POURQUOI LE NOËL DE LA FRENCH TECH ?
+                    {% else %}
+                        WHAT IS LE NOËL DE LA FRENCH TECH ?
+                    {% endif %}
+                </h2>
+            </div>
+        </a>
+    </div>
+    <div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+        <a href=''>
+            <div class='box'>
+                <h2 class='text-blue text-center'>
+                    {% if LANGUAGE_CODE == 'fr' %}
+                        LES PARRAINS
+                    {% else %}
+                        SPONSORS
+                    {% endif %}
+                </h2>
+            </div>
+        </a>
+    </div>
+    <div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+        <a href=''>
+            <div class='box'>
+                <h2 class='text-blue text-center'>
+                    {% if LANGUAGE_CODE == 'fr' %}
+                        LES OFFICIELS
+                    {% else %}
+                        OFFICIALS
+                    {% endif %}
+                </h2>
+            </div>
+        </a>
+    </div>
+</div>
+
 <script type="text/javascript">
     $(window).load(function(){
         if($('#all_products').length){
@@ -237,6 +322,19 @@ $(window).scroll(function(){
                 scrollTop: target.offset().top
             }, 1000);
         }
+
+        refH = 0;
+        $('#preFooter .box').each(function(){
+            if($(this).outerHeight()>refH){
+                refH = $(this).outerHeight();
+            }
+        });
+        $('#preFooter .box').each(function(){
+            $(this).outerHeight(refH);
+            target = $(this).children('h2');
+            target.css('margin-top', ($(this).outerHeight() - target.outerHeight())/2);
+            console.log($(this).outerHeight());
+        });
     });
 </script>
 {% endblock %}
