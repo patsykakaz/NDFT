@@ -38,14 +38,22 @@
     #preFooter .box{
         /*width: 100%;*/
         /*padding: 20px;*/
-        background-color: rgb(240,240,240);
+        /*background-color: rgb(240,240,240);*/
         -moz-transition: all 0.2s ease-in-out;
         -webkit-transition: all 0.2s ease-in-out;
         -o-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
     }
-    #preFooter .box img{
+    #preFooter .box img.img-thumbnail{
         max-width: 100%;
+        border-color: rgb(230,230,230);
+        -moz-transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+    #preFooter .box:hover img.img-thumbnail{
+        border-color: rgb(200,200,200);
     }
     footer{
         margin-top: 75px;
