@@ -10,7 +10,8 @@
 }
 #infoNav .info{
     display: inline-block;
-    margin: 0 10px 0 0;
+    margin: 0 15px 0 0;
+    font-size: 12px;
 } 
 #infoNav .info a, #infoNav .info a:hover, #infoNav .info a:active{
     color: white;
@@ -41,7 +42,7 @@
 #carousel{
     margin-bottom: 65px;:
 }
-.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img{
+.carousel-inner > .item > img, .carousel-inner > .item > a > img{
     width: 100%;
 }
 .carousel-indicators{
@@ -61,5 +62,8 @@
 @media screen and (max-width: 768px){
     #carousel{
         margin-bottom: 40px;:
+    }
+    .carousel-indicators{
+        display: none;
     }
 }

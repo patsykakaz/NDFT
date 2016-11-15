@@ -57,7 +57,7 @@
     {% endif %}
 
 {% for blog_post in blog_posts.object_list %}
-    <div class='col-md-8 col-sm-6 col-xs-8 col-md-offset-4 col-sm-offset-6 col-xs-offset-4' style='margin-bottom:20px;'>
+    <div class='col-md-12 text-center' style='margin-bottom:20px;'>
     {% block blog_post_list_post_title %}
         <h2>
             <a href="{{ blog_post.get_absolute_url }}">

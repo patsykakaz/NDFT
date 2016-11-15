@@ -36,20 +36,16 @@
         margin-top: 75px;
     }
     #preFooter .box{
-        width: 100%;
-        padding: 20px;
+        /*width: 100%;*/
+        /*padding: 20px;*/
         background-color: rgb(240,240,240);
         -moz-transition: all 0.2s ease-in-out;
         -webkit-transition: all 0.2s ease-in-out;
         -o-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
     }
-    #preFooter a, #preFooter a:hover{
-        text-decoration: none;
-    }
-    #preFooter .box h2{
-        margin: 20px 0;
-        font-size: 18px;
+    #preFooter .box img{
+        max-width: 100%;
     }
     footer{
         margin-top: 75px;
@@ -65,7 +61,7 @@
             margin-top: 50px;
         }
         #preFooter .box{
-            padding: 10px;
+            /*padding: 10px;*/
         }
         footer{
             margin-top: 50px;
@@ -278,50 +274,24 @@ Le Noël de la French Tech est un collectif de près de 200 start-ups française
 {% endif %}
 
 <div id='preFooter' class='container'>
-    <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+    <div class='box col-lg-3 col-md-3 col-sm-6 col-xs-6'>
         <a href='/pop-up-store'>
-            <div class='box thumbnail'>
-                <h2 class='text-blue text-center'>POP-UP STORE</h2>
-            </div>
+            <img class='img-thumbnail' src='{% static "img/Image-store.jpg" %}' >
         </a>
     </div>
-    <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+    <div class='box col-lg-3 col-md-3 col-sm-6 col-xs-6'>
         <a href='/pourquoi-le-noël-de-la-french-tech'>
-            <div class='box thumbnail'>
-                <h2 class='text-blue text-center'>
-                    {% if LANGUAGE_CODE == 'fr' %}
-                        POURQUOI LE NOËL DE LA FRENCH TECH ?
-                    {% else %}
-                        WHAT IS LE NOËL DE LA FRENCH TECH ?
-                    {% endif %}
-                </h2>
-            </div>
+            <img class='img-thumbnail' src='{% static "img/Image-pourquoi.jpg" %}' >
         </a>
     </div>
-    <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+    <div class='box col-lg-3 col-md-3 col-sm-6 col-xs-6'>
         <a href='/parrains'>
-            <div class='box thumbnail'>
-                <h2 class='text-blue text-center'>
-                    {% if LANGUAGE_CODE == 'fr' %}
-                        LES PARRAINS
-                    {% else %}
-                        SPONSORS
-                    {% endif %}
-                </h2>
-            </div>
+            <img class='img-thumbnail' src='{% static "img/Image-parrain.jpg" %}' >
         </a>
     </div>
-    <div class='col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+    <div class='box col-lg-3 col-md-3 col-sm-6 col-xs-6'>
         <a href='/officiels'>
-            <div class='box thumbnail'>
-                <h2 class='text-blue text-center'>
-                    {% if LANGUAGE_CODE == 'fr' %}
-                        LES OFFICIELS
-                    {% else %}
-                        OFFICIALS
-                    {% endif %}
-                </h2>
-            </div>
+            <img class='img-thumbnail' src='{% static "img/Image-officiel.jpg" %}' >
         </a>
     </div>
 </div>
@@ -336,7 +306,8 @@ Le Noël de la French Tech est un collectif de près de 200 start-ups française
         }
 
         refH = 0;
-        $('#preFooter .box').each(function(){
+        $(document).ready(function(){
+            $('#preFooter .box').each(function(){
             if($(this).outerHeight()>refH){
                 refH = $(this).outerHeight();
             }
@@ -345,6 +316,7 @@ Le Noël de la French Tech est un collectif de près de 200 start-ups française
             $(this).outerHeight(refH);
             target = $(this).children('h2');
             target.css('margin-top', ($(this).height() - target.outerHeight())/2);
+        });
         });
     });
 </script>
