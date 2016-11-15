@@ -16,6 +16,9 @@
     color: white;
     text-decoration: none;
 }
+#infoNav a .fa{
+    color: white;
+}
 
 .navbar.navbar-default{
     margin-bottom: 0;

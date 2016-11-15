@@ -71,13 +71,30 @@
 <div class="navbar navbar-default" role="navigation">
     <div id='infoNav'>
         <div class='info'>
-            <a href='/who-are-we'>Blog</a>
+            <a href='/blog'>Blog</a>
         </div>
         <div class='info'>
             <a href='/who-are-we'>
                 {% if LANGUAGE_CODE == 'fr' %}Qui sommes-nous? {% else %}Who are we? {% endif %}
             </a>
         </div>
+        <div class='info pull-right'>
+            <a href='//facebook.com/noeldelafrenchtech'>
+                <i class='fa fa-lg fa-facebook-square'></i>
+            </a>
+        </div>
+        <div class='info pull-right'>
+            <a href='//twitter.com/noelfrenchtech'>
+                <i class='fa fa-lg fa-twitter-square'></i>
+            </a>
+        </div>
+        {% if LANGUAGE_CODE == 'fr' %}
+        <div class='info pull-right'>
+            <a href='{% static "files/CERTIF-NFT.pdf" %}' download>
+            Certificat d'authenticité
+            </a>
+        </div>
+        {% endif %}
     </div>
     <div class="container">
         <div class="navbar-header">
@@ -136,8 +153,13 @@
 <footer>
     <div class='container'>
         <div class='col-md-12 text-center'>
-            <a href='//facebook.com/noeldelafrenchtech'><i class='fa fa-3x fa-facebook-square'></i></a>
-            <a href='//twitter.com/noelfrenchtech'><i class='fa fa-3x fa-twitter-square'></i></a>
+            <a href='//facebook.com/noeldelafrenchtech'><i class='fa fa-3x fa-facebook'></i></a>
+            <a href='//twitter.com/noelfrenchtech'><i class='fa fa-3x fa-twitter'></i></a>
+        </div>
+        <div class='col-md-12 text-center' style='margin-top:10px;'>
+            <class='text-muted'>Le Noël de la French Tech, {% if LANGUAGE_CODE == 'fr' %}tous droits réservés. {% else %}
+            all rights reserved {% endif %}
+            </class='text-muted'>
         </div>
     </div>
 </footer>
