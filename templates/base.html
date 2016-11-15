@@ -69,7 +69,16 @@
 </div>
 
 <div class="navbar navbar-default" role="navigation">
-    <div style='background-color:#00718f;'>[INFO]</div>
+    <div id='infoNav'>
+        <div class='info'>
+            <a href='/who-are-we'>Blog</a>
+        </div>
+        <div class='info'>
+            <a href='/who-are-we'>
+                {% if LANGUAGE_CODE == 'fr' %}Qui sommes-nous? {% else %}Who are we? {% endif %}
+            </a>
+        </div>
+    </div>
     <div class="container">
         <div class="navbar-header">
             {# <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> #}

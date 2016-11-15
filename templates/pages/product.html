@@ -50,7 +50,7 @@
         </div>
         <a class='buy' href='{{ product.mainLink }}' target='blank'>
             {% if LANGUAGE_CODE == 'fr' %}
-                L'offrir
+                Offrir
             {% else %}
                 Offer it !
             {% endif %}
@@ -103,7 +103,13 @@
             <p style='margin-bottom:20px; font-size:16px;'> <i>{{ product.baseline }} </i></p>
             {{ product.presentation_product|richtext_filters|safe }}
         </div>
-        <a class='buy pull-right' href='{{ product.mainLink }}' target='blank'>L'offrir</a>
+        <a class='buy pull-right' href='{{ product.mainLink }}' target='blank'>
+            {% if LANGUAGE_CODE == 'fr' %}
+                Offrir
+            {% else %}
+                Offer it !
+            {% endif %}
+        </a>
     </div>
 </div>
 

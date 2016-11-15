@@ -4,6 +4,19 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+#infoNav{
+    padding: 5px 20px;
+    background-color: #00718f;
+}
+#infoNav .info{
+    display: inline-block;
+    margin: 0 10px 0 0;
+} 
+#infoNav .info a, #infoNav .info a:hover, #infoNav .info a:active{
+    color: white;
+    text-decoration: none;
+}
+
 .navbar.navbar-default{
     margin-bottom: 0;
     opacity: 0;
@@ -24,6 +37,9 @@
 
 #carousel{
     margin-bottom: 65px;:
+}
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img{
+    width: 100%;
 }
 .carousel-indicators{
     bottom: 4px;
