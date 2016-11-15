@@ -14,10 +14,12 @@ from models import *
 class MenuMiddleware(object):
     def process_template_response(self, request, response):
         all_categories = Category.objects.all().order_by('-order')
+        last_blog = BlogPost.objects.last()
         # forbidden_domain = "lalettre"
         # if not request.user.is_authenticated() and not "admin/" in request.path and not "/user/" in request.path :
         #     return HttpResponseRedirect('/user/login/?next='+request.path)
         # else:
         #     print "request.user.is_authenticated = {}".format(request.user.is_authenticated())
         response.context_data['all_categories'] = all_categories
+        response.context_data['last_blog'] = last_blog
         return response

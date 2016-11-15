@@ -13,9 +13,9 @@ from mezzanine.blog.models import BlogPost
 def processor_projet(request, page):
     random_products = Product.objects.all().order_by('?')[:16]
     bandit_products = Product.objects.exclude(pk__in=random_products)
-    last_blog = BlogPost.objects.last()
     # print len(bandit_products)
     return locals()
+
 
 @processor_for(Category)
 def processor_projet(request, page):
