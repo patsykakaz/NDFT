@@ -7,6 +7,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
 <meta name="description" content="{% block meta_description %}{% endblock %}">
+
+<meta property="og:url" content="http://noeldelafrenchtech.fr" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Le Noël de la French Tech" />
+<meta property="og:description" content="Le Noël de la French Tech est un collectif de près de 200 start-ups françaises qui veulent faire découvrir leurs produits (géniaux) à leurs compatriotes" />
+<meta property="og:image" content="http://noeldelafrenchtech.fr/static/img/logo_NDFT_2.jpg" />
+
+
 <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
 <link rel="shortcut icon" href="{% static "img/ico.png" %}">
 

@@ -46,6 +46,7 @@
     }
     #preFooter .box img.img-thumbnail{
         max-width: 100%;
+        margin-top: 20px;
         border-color: rgb(230,230,230);
         -moz-transition: all 0.2s ease-in-out;
         -webkit-transition: all 0.2s ease-in-out;
@@ -145,7 +146,6 @@ Le Noël de la French Tech est un collectif de près de 200 start-ups française
             </a>
         </div>
         {% if last_blog %}
-        <script type="text/javascript">console.log('lastBlog');</script>
         <div class="item">
             <a href='{{ last_blog.get_absolute_url }}'>
                 {# <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 1200 0 %}"> #}
