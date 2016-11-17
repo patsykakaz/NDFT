@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load pages_tags mezzanine_tags i18n staticfiles %}
+{% load mezzanine_tags pages_tags mezzanine_tags i18n staticfiles keyword_tags %}
 
 {% block meta_title %}{{ page.meta_title }}{% endblock %}
 
@@ -32,7 +32,7 @@
 {% block main %}
 
     <div id='banner'>
-        <img src="{% static "img/logo_NDFT.jpg" %}" alt="wishlist illustration">
+        <img src="{% static "img/wishlist.jpg" %}" alt="wishlist illustration">
     </div>
 
     <div id='share_btn' class="btn btn-success clearfix">Partager</div>
