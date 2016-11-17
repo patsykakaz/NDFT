@@ -40,9 +40,9 @@ urlpatterns += [
     # one out.
 
     # url("^$", direct_to_template, {"template": "index.html"}, name="home"),
-    url(r'^verification/$', verification, name='verification'),
+    # url(r'^verification/$', verification, name='verification'),
     url(r'^add2list/(?P<pk>(\d+))/$', add2list, name='add2list'),
-    url(r'^checklist/(?P<Plist>([0-9]-?)*)/$', checklist, name='checklist'),
+    url(r'^viewlist/(?P<Plist>([0-9]-?)*)/$', viewlist, name='viewlist'),
     url(r'^wishlist/$', sharelist, name='sharelist'),
     url(r'^TousNosBeauxProduits/$', all, name='all'),
     url(r'^all/$', all, name='all'),

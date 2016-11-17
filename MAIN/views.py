@@ -21,14 +21,14 @@ def verification(request):
     return render(request,'verification.html',locals())
 
 def add2list(request,pk):
-    product = Product.objects.get(pk=pk)
+    product = Product.objects.get(pk=int(pk))
     if 'Plist' not in request.session:
         request.session['Plist'] = [pk]
     else: 
-        request.session['¨Pist'] = request.session['plist'] + [pk]
+        request.session['Pist'] += [pk]
     return render(request,'pages/product.html',locals())
 
-def checklist(request,Plist=False):
+def viewlist(request,Plist=False):
     products = []
     if Plist:
         if 'Plist' not in request.session:

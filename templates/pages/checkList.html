@@ -1,6 +1,20 @@
 {% extends "base.html" %}
 {% load pages_tags mezzanine_tags i18n staticfiles %}
 
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static "css/category.css" %}">
     <style type="text/css">
@@ -15,7 +29,12 @@
 <script src="{% static "js/category.js" %}"></script>
 {% endblock %}
 
+
 {% block main %}
+
+    <div id='banner'>
+        <img src="{% static "img/logo_NDFT.jpg" %}" alt="wishlist illustration">
+    </div>
 
     {% if products %}
     <a href=''>
