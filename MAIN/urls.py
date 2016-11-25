@@ -32,35 +32,17 @@ urlpatterns += [
     # We don't want to presume how your homepage works, so here are a
     # few patterns you can use to set it up.
 
-    # HOMEPAGE AS STATIC TEMPLATE
-    # ---------------------------
-    # This pattern simply loads the index.html template. It isn't
-    # commented out like the others, so it's the default. You only need
-    # one homepage pattern, so if you use a different one, comment this
-    # one out.
-
     # url("^$", direct_to_template, {"template": "index.html"}, name="home"),
-    # url(r'^verification/$', verification, name='verification'),
+    url(r'^TousNosBeauxProduits/$', allProducts, name='all'),
+    url(r'^all/$', allProducts, name='all'),
     url(r'^add2list/(?P<pk>(\d+))/$', add2list, name='add2list'),
+    url(r'^removeFromList/(?P<pk>(\d+))/$', removeFromList, name='removeFromList'),
+    url(r'^flushlist/$', flushlist, name='flushlist'),
+    url(r'^wishlist/$', wishlist, name='wishlist'),
     url(r'^viewlist/(?P<Plist>([0-9]-?)*)/$', viewlist, name='viewlist'),
-    url(r'^wishlist/$', sharelist, name='sharelist'),
-    url(r'^TousNosBeauxProduits/$', all, name='all'),
-    url(r'^all/$', all, name='all'),
 
 
-    # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
-    # ---------------------------------------------
-    # This pattern gives us a normal ``Page`` object, so that your
-    # homepage can be managed via the page tree in the admin. If you
-    # use this pattern, you'll need to create a page in the page tree,
-    # and specify its URL (in the Meta Data section) as "/", which
-    # is the value used below in the ``{"slug": "/"}`` part.
-    # Also note that the normal rule of adding a custom
-    # template per page with the template name using the page's slug
-    # doesn't apply here, since we can't have a template called
-    # "/.html" - so for this case, the template "pages/index.html"
-    # should be used if you want to customize the homepage's template.
-    # NOTE: Don't forget to import the view function too!
+
 
     url("^$", homeView, {"slug": "/"}, name="home"),
 

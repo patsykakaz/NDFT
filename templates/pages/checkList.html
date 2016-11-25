@@ -59,7 +59,7 @@
                 <div class='discover'>
                     <btn class='discover_btn'>
                         {% if LANGUAGE_CODE == 'fr' %}
-                            Découvrir
+                            Voir
                         {% else %}
                             View
                         {% endif %}
@@ -77,6 +77,29 @@
             No product has been placed in your christmas list !
         {% endif %}
         </h2>
+        {% for product in alt_products %}
+            <div class='productBox thumbnail col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+                <a href='{{ product.get_absolute_url }}'>
+                <div class='productLiner'></div>
+                <img class='img-thumbnail'  src="{{ MEDIA_URL}}{% thumbnail product.illustration 400 300 center %}" alt="illustration {{ produit.productName }}">
+                <h2 class='text-grey'>{{ product.productName }}</h2>
+                <h3>{{ product.title }}</h3>
+                {% if product.baseline %}
+                <div class='baseline'>{{ product.baseline }}</div>
+                {% if product.price %}<span class='text-blue'>{{ product.price }}</span>{% endif %}
+                {% endif %}
+                <div class='discover'>
+                    <btn class='discover_btn'>
+                        {% if LANGUAGE_CODE == 'fr' %}
+                            Découvrir
+                        {% else %}
+                            View
+                        {% endif %}
+                    </btn>
+                </div>
+                </a>
+            </div>
+        {% endfor %}
     {% endif %}
 
 {% endblock %}

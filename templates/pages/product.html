@@ -26,9 +26,13 @@
 
 {% block main %}
 
-{% if product.category|length %}
-    <div id='category'>
-        {{ product.category }}
+{% if addToken or wished %}
+    <div id='addToken' class='text-center'>
+        {% if LANGUAGE_CODE == 'fr' %}
+        Le produit <b>{{ product.productName }}</b> a été ajouté à votre <a href='/wishlist'> <i class='fa fa-lg fa-shopping-cart'></i> wishlist</a>
+        {% else %}
+        <b>{{ product.productName }}</b> has been added to your <a href='/wishlist'> <i class='fa fa-lg fa-shopping-cart'></i> wishlist</a>
+        {% endif %}
     </div>
 {% endif %}
 
@@ -49,13 +53,18 @@
             {{ product.presentation_product|richtext_filters|safe }}
         </div>
         {% if not 'atelier' in request.get_host %}
-        <a class='buy' href='{{ product.mainLink }}' target='blank'>
-            {% if LANGUAGE_CODE == 'fr' %}
-                Offrir
+            {% if addToken or wished %}
+                <a class='buy cart off pull-right'>
+                    <i class='fa fa-lg fa-shopping-cart'></i>
+                </a>
             {% else %}
-                Offer it !
+                <a class='buy cart pull-right' href='/add2list/{{ product.pk }}'><i class='fa fa-lg fa-shopping-cart'></i></a>
             {% endif %}
-        </a>
+            {% if LANGUAGE_CODE == 'fr' %}
+                <a class='buy pull-right' href='{{ product.mainLink }}' target='blank'>Offrir</a>
+            {% else %}
+                <a class='buy pull-right' href='{{ product.mainLink }}' target='blank'>Offer it !</a>
+            {% endif %}
         {% endif %}
     </div>
     <div class='col-md-4 col-sm-6 col-xs-12 text-left'>
@@ -106,13 +115,18 @@
             {{ product.presentation_product|richtext_filters|safe }}
         </div>
         {% if not 'atelier' in request.get_host %}
-        <a class='buy pull-right' href='{{ product.mainLink }}' target='blank'>
-            {% if LANGUAGE_CODE == 'fr' %}
-                Offrir
+            {% if addToken or wished %}
+                <a class='buy cart off pull-right'>
+                    <i class='fa fa-lg fa-shopping-cart'></i>
+                </a>
             {% else %}
-                Offer it !
+                <a class='buy cart pull-right' href='/add2list/{{ product.pk }}'><i class='fa fa-lg fa-shopping-cart'></i></a>
             {% endif %}
-        </a>
+            {% if LANGUAGE_CODE == 'fr' %}
+                <a class='buy pull-right' href='{{ product.mainLink }}' target='blank'>Offrir</a>
+            {% else %}
+                <a class='buy pull-right' href='{{ product.mainLink }}' target='blank'>Offer it !</a>
+            {% endif %}
         {% endif %}
     </div>
 </div>

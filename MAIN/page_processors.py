@@ -17,7 +17,6 @@ def processor_projet(request, page):
     # print len(bandit_products)
     return locals()
 
-
 @processor_for(Category)
 def processor_projet(request, page):
     category = targetCat = Category.objects.get(pk=page.pk)
@@ -31,10 +30,14 @@ def processor_projet(request, page):
 def processor_projet(request, page):
     product = Product.objects.get(pk=page.pk)
     targetCat = product.cat_product
+    if "Plist" in request.session and str(product.pk) in request.session['Plist']:
+        wished = True
     try: 
         related_products = Product.objects.filter(cat_product=product.cat_product).exclude(pk=product.pk).order_by('?')[:4]
     except:
         pass
+    if "Plist" in request.session and product.pk in request.session['Plist']:
+            addToken = True
     return locals()
 
 
