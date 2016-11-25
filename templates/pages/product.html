@@ -55,10 +55,10 @@
         {% if not 'atelier' in request.get_host %}
             {% if addToken or wished %}
                 <a class='buy cart off pull-right'>
-                    <i class='fa fa-lg fa-shopping-cart'></i>
+                    <i class='fa fa-lg fa-heart'></i>
                 </a>
             {% else %}
-                <a class='buy cart pull-right' href='/add2list/{{ product.pk }}'><i class='fa fa-lg fa-shopping-cart'></i></a>
+                <a class='buy cart pull-right' href='/add2list/{{ product.pk }}'><i class='fa fa-lg fa-heart-o'></i></a>
             {% endif %}
             {% if LANGUAGE_CODE == 'fr' %}
                 <a class='buy pull-right' href='{{ product.mainLink }}' target='blank'>Offrir</a>
